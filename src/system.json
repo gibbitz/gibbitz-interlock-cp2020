@@ -1,0 +1,55 @@
+{
+  "id": "cp2020",
+  "title": "Cyberpunk 2020 INTERLOCK System Homebrew",
+  "description": "Homebrew of R. Talsorian Games' Cyberpunk 2020 INTERLOCK System",
+  "version": "0.0.1",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "11",
+    "maximum": "11"
+  },
+  "esmodules": [
+    "cp2020.js"
+  ],
+  "styles": [
+    "css/main.css"
+  ],
+  "packs": [
+    {
+      "name": "skills",
+      "label": "Skills",
+      "system": "cp2020",
+      "path": "packs/skills",
+      "type": "Item",
+      "private": false,
+      "flags": {}
+    },
+    {
+      "name": "armor",
+      "label": "Armor",
+      "system": "cp2020",
+      "path": "packs/armor",
+      "type": "Item",
+      "private": false,
+      "flags": {}
+    }
+  ],
+  "packFolders": [{
+    "name": "core",
+    "sorting": "m",
+    "color": "#1e1e1e",
+    "packs": ["skills", "armor"],
+    "folders": []
+  }],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "initiative": "1d10",
+  "gridDistance": 1,
+  "gridUnits": "m",
+  "primaryTokenAttribute": null
+}

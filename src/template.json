@@ -1,0 +1,158 @@
+{
+  "Actor": {
+    "types": [
+      "edgerunner",
+      "npc_01",
+      "npc_02",
+      "npc_03"
+    ],
+    "edgerunner": {},
+    "npc_01": {},
+    "npc_02": {},
+    "npc_03": {}
+  },
+  "Item": {
+    "types": [
+      "armor",
+      "cyberdeck",
+      "cyberwear",
+      "outfit",
+      "program",
+      "skill",
+      "vehicle",
+      "weapon"
+    ],
+    "templates": {
+      "meta": {
+        "flavor": "",
+        "description": "",
+        "notes": "",
+        "source": ""
+      },
+      "econ": {
+        "cost": 0,
+        "availability": ""
+      },
+      "traits": {
+        "equipped": false,
+        "weight": 0
+      },
+      "destructable": {
+        "sp": 0,
+        "sdp": 1
+      },
+      "weapon": {
+        "type": "",
+        "skill": "",
+        "damage": "",
+        "concealability": "",
+        "accuracy": 0
+      },
+      "ranged": {
+        "range": 0,
+        "magazine": 0,
+        "cartridge": "",
+        "rateOfFire": "1-2"
+      },
+      "explosive": {
+        "blastRadius": 0
+      }
+    },
+    "armor": {
+      "templates": [
+        "meta",
+        "econ",
+        "traits"
+      ],
+      "coverage": [],
+      "sp": 0,
+      "ev": 0,
+      "armorType": "",
+      "locations": ""
+    },
+    "cyberdeck": {
+      "templates": [
+        "meta",
+        "econ",
+        "traits"
+      ],
+      "speed": 0,
+      "cpu": 0,
+      "dataWallStr": 0,
+      "codeGateStr": 0,
+      "memoryUnits": 0
+    },
+    "cyberwear": {
+      "templates": [
+        "meta",
+        "econ",
+        "destructable",
+        "weapon",
+        "ranged",
+        "explosive"
+      ],
+      "equipped": true,
+      "location":"",
+      "humanityCost": "",
+      "humanityLoss": 0,
+      "surgicalCost": "",
+      "slots": 0,
+      "modifierType": "",
+      "modifies": "",
+      "modifier": 0
+    },
+    "outfit": {
+      "templates": [
+        "meta",
+        "econ",
+        "traits"
+      ]
+    },
+    "program": {
+      "templates": [
+        "meta",
+        "econ"
+      ],
+      "strength": 0,
+      "MemoryUnits": 0
+    },
+    "skill": {
+      "templates": [
+        "meta"
+      ],
+      "level": 0,
+      "chipLevel": 0,
+      "ip": 0,
+      "ipMultiplier": 1,
+      "roles": [],
+      "specialAbility": "",
+      "stat": "CL"
+    },
+    "vehicle": {
+      "templates": [
+        "meta",
+        "econ",
+        "traits",
+        "destructable"
+      ],
+      "acceleration": 0,
+      "deceleration": 0,
+      "crew": 1,
+      "passengers": 0,
+      "range": 0,
+      "cargo": 0,
+      "maneuver": 0,
+      "topSpeed": 0
+    },
+    "weapon": {
+      "templates": [
+        "meta",
+        "econ",
+        "traits",
+        "weapon",
+        "ranged",
+        "explosive"
+      ]
+    }
+  }
+}

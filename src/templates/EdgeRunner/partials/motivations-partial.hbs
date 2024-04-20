@@ -1,0 +1,17 @@
+<div class="legend">{{localize 'cp2020.identity.motivations.title'}}</div>
+{{#with system.identity.Motivations}}
+<article class="fieldset">
+  {{cp2020-input
+  name='system.identity.Motivations.personalityTraits'
+  value=personalityTraits
+  type='text'
+  label='cp2020.identity.motivations.personalityTraits'
+  }}
+  {{cp2020-input
+  name='system.identity.Motivations.feelAboutPeople'
+  value=feelAboutPeople
+  type='text'
+  label='cp2020.identity.motivations.feelAboutPeople'
+  }}
+</article>
+{{/with}}

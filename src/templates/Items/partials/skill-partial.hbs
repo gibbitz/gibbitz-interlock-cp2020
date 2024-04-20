@@ -1,0 +1,54 @@
+{{cp2020Log ' SKILL PARTIAL: | ' skill.name}}
+<li class="item" data-item-id="{{skill._id}}" data-item-name="{{skill.name}}">
+  <details>
+    <summary>
+      <a class="item-roll item-name">
+        {{skill.name}}
+      </a>
+      <div>
+        {{cp2020-input
+        label="cp2020.items.skill.level"
+        selector='actor.item'
+        uuid=skill._id
+        key='system.level'
+        type='number'
+        value=skill.system.level
+        }}
+      </div>
+      {{#if skill.system.chipLevel}}
+      {{else}}
+        <div>
+          {{cp2020-input
+          label="cp2020.items.skill.ip"
+          selector='actor.item'
+          uuid=skill._id
+          key='system.ip'
+          render='true'
+          type='number'
+          value=skill.system.ip
+          }}
+        </div>
+        <div>
+          <label>{{localize "cp2020.items.skill.levelUp"}}</label>
+          {{skill.system.levelUp}}
+        </div>
+      {{/if}}
+      <div>
+        {{cp2020-checkbox
+        label="cp2020.items.skill.isChipped"
+        selector='actor.item'
+        uuid=skill._id
+        key='system.chipLevel'
+        render='true'
+        value=skill.system.chipLevel
+        }}
+      </div>
+    </summary>
+    <div>
+      {{skill.system.description}}
+    </div>
+    <div>
+      {{skill.system.notes}}
+    </div>
+  </details>
+</li>

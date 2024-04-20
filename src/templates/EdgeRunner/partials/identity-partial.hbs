@@ -1,0 +1,36 @@
+{{cp2020Log ' IDENTITY | ACTOR | ' this}}
+<div class="legend">Identity</div>
+<article class="fieldset">
+  {{cp2020-input
+    name='name'
+    value=name
+    type='text'
+    label='cp2020.identity.handle'
+  }}
+  {{#with system.identity}}
+    {{cp2020-input
+      name='system.identity.givenName'
+      value=givenName
+      type='text'
+      label='cp2020.identity.givenName'
+    }}
+    {{cp2020-input
+      name='system.identity.age'
+      value=age
+      type='text'
+      label='cp2020.identity.age'
+    }}
+    {{cp2020-input
+      name='system.identity.gender'
+      value=gender
+      type='text'
+      label='cp2020.identity.gender'
+    }}
+    {{cp2020-input
+      name='system.identity.sexualPreference'
+      value=sexualPreference
+      type='text'
+      label='cp2020.identity.sexualPreference'
+    }}
+  {{/with}}
+</article>

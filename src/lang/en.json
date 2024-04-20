@@ -1,0 +1,436 @@
+{
+  "cp2020": {
+    "stats": {
+      "label": "Stats",
+      "mod": "mod",
+      "base": "base",
+      "dam": "dam",
+      "total": "total",
+      "INT": {
+        "short": "INT",
+        "long": "Intelligence"
+      },
+      "REF": {
+        "short": "REF",
+        "long": "Reflexes"
+      },
+      "TECH": {
+        "short": "TECH",
+        "long": "Technical Aptitude"
+      },
+      "CL": {
+        "short": "CL",
+        "long": "Cool"
+      },
+      "ATT": {
+        "short": "ATT",
+        "long": "Attractiveness"
+      },
+      "LUCK": {
+        "short": "LUCK",
+        "long": "Luck"
+      },
+      "MA": {
+        "short": "MA",
+        "long": "Movement Allowance"
+      },
+      "BODY": {
+        "short": "BODY",
+        "long": "Body Type"
+      },
+      "EMP": {
+        "short": "EMP",
+        "long": "Empathy"
+      },
+      "REP": {
+        "short": "REP",
+        "long": "Reputation"
+      },
+      "HUM": {
+        "short": "HUM",
+        "long": "Humanity"
+      },
+      "HL": {
+        "short": "HL",
+        "long": "Humanity Loss"
+      },
+      "RUN": {
+        "short": "RUN",
+        "long": "Run"
+      },
+      "LEAP": {
+        "short": "LEAP",
+        "long": "Leap"
+      },
+      "CA": {
+        "short": "CA",
+        "long": "Carry"
+      },
+      "LIFT": {
+        "short": "LIFT",
+        "long": "Lift"
+      }
+    },
+    "units": {
+      "short": {
+        "m": "m",
+        "km": "km",
+        "ft": "ft",
+        "g": "g",
+        "kg": "kg",
+        "lb": "lb"
+      },
+      "long": {
+        "singular": {
+          "m": "meter",
+          "km": "kilometer",
+          "ft": "foot",
+          "g": "gram",
+          "kg": "kilogram",
+          "lb": "pound"
+        },
+        "plural": {
+          "m": "meters",
+          "km": "kilometers",
+          "ft": "feet",
+          "g": "grams",
+          "kg": "kilograms",
+          "lb": "pounds"
+        }
+      }
+    },
+    "items": {
+      "name": "Item",
+      "cost": "Cost",
+      "avail": "Availability",
+      "description": "Details",
+      "weight": "Weight",
+      "equipped": "Equipped",
+      "availabilities": {
+        "label": "Availability",
+        "C": {
+          "long": "Common",
+          "short": "C"
+        },
+        "E": {
+          "long": "Excellent",
+          "short": "E"
+        },
+        "P": {
+          "long": "Poor",
+          "short": "P"
+        },
+        "R": {
+          "long": "Rare",
+          "short": "R"
+        }
+      },
+      "skill": {
+        "label": "Skills",
+        "flavor": "Skill Name",
+        "description": "Details",
+        "notes": "Notes",
+        "source": "Source",
+        "cost": "Cost",
+        "weight": "Weight",
+        "equipped": "Equipped",
+        "level": "Level",
+        "levelUp": "Level Up",
+        "chipLevel": "Chip Level",
+        "isChipped": "Chipped",
+        "ip": "IP",
+        "ipMultiplier": "IP Multiplier",
+        "stat": "Stat"
+      },
+      "armor": {
+        "label": "Armor",
+        "sp": {
+          "long": "Stopping Power",
+          "short": "SP"
+        },
+        "ev": {
+          "long": "Encumbrance Value",
+          "short": "EV"
+        }
+      },
+      "cyberwear": {
+        "label": "Cyberwear",
+        "humanityCost": {
+          "long": "Humanity Cost",
+          "short": "HC"
+        },
+        "humanityLoss": {
+          "long": "Humanity Loss",
+          "short": "HL"
+        },
+        "surgicalCost": {
+          "long": "Surgical Cost",
+          "short": "SC"
+        },
+        "slots": "Slots",
+        "modifierType": "Modifier Type",
+        "modifierTypes": {
+          "skill": "Skill",
+          "stat": "Stat"
+        },
+        "modifies": "Modifies",
+        "modifier": "Modifier",
+        "location": {
+          "long": "Location",
+          "short": "Loc"
+        }
+      },
+      "cyberdeck": {
+        "label": "Cyberdeck",
+        "speed": {
+          "long": "Speed",
+          "short": "SPD"
+        },
+        "memory": {
+          "long": "Memory Units",
+          "short": "MU"
+        },
+        "dataWalls": {
+          "long": "DataWall Strength",
+          "short": "DW"
+        },
+        "codeGates": {
+          "long": "CodeGate Strength",
+          "short": "CG"
+        },
+        "cpu": {
+          "long": "Processor Cores",
+          "short": "CPU"
+        }
+      },
+      "program": {
+        "label": "Programs",
+        "memoryUnits": {
+          "long": "Memory Units",
+          "short": "MU"
+        },
+        "strength": {
+          "long": "Program Strength",
+          "short": "STR"
+        }
+      },
+      "weapon": {
+        "label": "Weapons",
+        "type": {
+          "long": "Weapon Type",
+          "short": "Type"
+        },
+        "types": {
+          "bow": {
+            "long": "Bow",
+            "short": "Bow"
+          },
+          "melee": {
+            "long": "Melee",
+            "short": "Mel"},
+          "pistol": {
+            "long": "Handgun",
+            "short": "Pistol"
+          },
+          "submachineGun": {
+            "long": "Submachine Gun",
+            "short": "SMG"
+          },
+          "rifle": {
+            "long": "Rifle",
+            "short": "Rifle"
+          },
+          "heavyWeapons": {
+            "long": "Heavy Weapons",
+            "short": "HVY"
+          }
+        },
+        "skill": "skill",
+        "damage": {
+          "long": "Damage",
+          "short": "DAM"
+        },
+        "conceal": {
+          "long": "Concealability",
+          "short": "Conc",
+          "not": {
+            "long": "Not Concealable",
+            "short": "NC"
+          },
+          "longCoat": {
+            "long": "Long Coat Concealable",
+            "short": "LC"
+          },
+          "jacket": {
+            "long": "Jacket Concealable",
+            "short": "J"
+          },
+          "pocket": {
+            "long": "Pocketable",
+            "short": "P"
+          }
+        },
+        "accuracy": {
+          "long": "Accuracy",
+          "short": "Acc"
+        },
+        "range": "Range",
+        "magazine": {
+          "long": "Magazine",
+          "short": "Mag"
+        },
+        "cartridge": {
+          "long": "Cartridge",
+          "short": "Ammo"
+        },
+        "rateOfFire": {
+          "long": "Rate Of Fire",
+          "short": "ROF"
+        },
+        "blastRadius": {
+          "long": "Blast Radius",
+          "short": "BR"
+        }
+      },
+      "outfit": {
+        "label": "Outfit"
+      },
+      "vehicle": {
+        "label": "Vehicle",
+        "acc": {
+          "long": "Acceleration",
+          "short": "ACC"
+        },
+        "dec": {
+          "long": "Deceleration",
+          "short": "DEC"
+        },
+        "crew": "Crew",
+        "passengers": {
+          "long": "Passengers",
+          "short": "Pass"
+        },
+        "range": "Range",
+        "cargo": "Cargo",
+        "maneuver": {
+          "long": "Maneuver",
+          "short": "Man"
+        },
+        "topSpeed": {
+          "long": "Top Speed",
+          "short": "SPD"
+        }
+      }
+    },
+    "hitLocations": {
+      "skull": "skull",
+      "face": "face",
+      "neck": "neck",
+      "right": {
+        "eye": "right eye",
+        "chest": "right chest",
+        "stomach": "right stomach",
+        "hipBone": "right hip bone",
+        "shoulder": "right shoulder",
+        "upperArm": "right upper arm",
+        "elbow": "right elbow",
+        "forearm": "right forearm",
+        "hand": "right hand",
+        "groin": "right groin",
+        "hipJoint": "right hip joint",
+        "thigh": "right thigh",
+        "knee": "right knee",
+        "shin": "right shin",
+        "foot": "right foot"
+      },
+      "left": {
+        "eye": "left eye",
+        "chest": "left chest",
+        "stomach": "left stomach",
+        "hipBone": "left hip bone",
+        "shoulder": "left shoulder",
+        "upperArm": "left upper arm",
+        "elbow": "left elbow",
+        "forearm": "left forearm",
+        "hand": "left hand",
+        "groin": "left groin",
+        "hipJoint": "left hip joint",
+        "thigh": "left thigh",
+        "knee": "left knee",
+        "shin": "left shin",
+        "foot": "left foot"
+      }
+    },
+    "identity": {
+      "handle": "handle",
+      "givenName": "given name",
+      "role": "role",
+      "age": "age",
+      "gender": "gender",
+      "sexualPreference": "sexual preference",
+      "image": "image",
+      "token": "token",
+      "style": {
+        "title": "style",
+        "clothes": "clothes",
+        "hair": "hair",
+        "affectations": "affectations"
+      },
+      "motivations": {
+        "title": "motivations",
+        "personalityTraits": "personality traits",
+        "feelAboutPeople": "feel about people",
+        "values": {
+          "title": "values",
+          "person": "favorite person",
+          "possession": "favorite possession",
+          "ideals": "ideals"
+        }
+      }
+    },
+    "lifepath": {
+      "label": "Lifepath",
+      "year": "year",
+      "event": "event"
+    },
+    "family": {
+      "ethnicity": "ethnicity",
+      "language": "language",
+      "parents": "parent status",
+      "siblingCount": "number of siblings",
+      "ranking": "family rank",
+      "status": "family status",
+      "childhood": "childhood environment"
+    },
+    "siblings": {
+      "age": "relative age",
+      "ages": {
+        "younger": "older",
+        "older": "younger",
+        "twin": "twin"
+      },
+      "gender": "gender",
+      "handle": "handle",
+      "name": "full name",
+      "relationshipNotes": "relationship & notes"
+    },
+    "macro": {
+      "missingItemWarn": "Your edgerunner '{actor}' does not have any {type} with name '{name}', choomb.",
+      "multipleItemsWarn": "Your edgerunner '{actor}' has more than one {type} with name '{name}'. Using the first match...",
+      "noActorSelected": "You gotta point that thing at somebody.",
+      "unownedWarn": "If you don't own it, you can't use it..."
+    },
+    "sidebar":{
+      "imports": {
+        "title": "Import CP2020 System Data",
+        "skills": "Import Skill Data",
+        "outfit": "Import Outfit Data",
+        "weapons": "Import Weapon Data",
+        "armor": "Import Armor Data",
+        "cyberdecks": "Import Cyberdeck Data",
+        "programs": "Import Program Data",
+        "vehicles": "Import Vehicle Data"
+      }
+    }
+  }
+}

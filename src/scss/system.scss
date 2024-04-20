@@ -1,0 +1,34 @@
+@font-face {
+  font-family: 'Aldrich';
+  src: url(https://fonts.gstatic.com/s/aldrich/v10/MCoTzAn-1s3IGyJMVacY3w.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Share Tech Mono';
+  src: url(https://fonts.gstatic.com/s/sharetechmono/v9/J7aHnp1uDWRBEqV98dVQztYldFcLowEF.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  @extend %custom-scrollbars;
+}
+
+.chat-message.whisper {
+  @extend %background;
+  @extend %inverted-color;
+}
+.window-header {
+  font-family: $font-small;
+  font-size: $font-size-11;
+}
+.window-content {
+  @extend %background;
+  @extend %inverted-color;
+}
+
+.sheet-header {
+  font-family: $font-title;
+}

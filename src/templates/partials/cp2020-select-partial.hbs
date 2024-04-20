@@ -1,0 +1,14 @@
+{{cp2020Log ' SELECT | ' this}}
+<span class="field-box">
+  <span class="field-box--inner">
+    <label>
+      <select
+        name="{{name}}"
+        {{#if multiple}}multiple{{/if}}
+      >
+          {{selectOptions options selected=value}}
+      </select>
+      <small>{{localize label}}</small>
+    </label>
+  </span>
+</span>
