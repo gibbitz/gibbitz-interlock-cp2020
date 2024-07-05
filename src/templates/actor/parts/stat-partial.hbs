@@ -1,0 +1,65 @@
+{{systemLog ' STATS | ' this}}
+<div class="legend">Stats</div>
+<article class="fieldset row edgerunner__stats">
+  {{#each this}}
+    {{systemLog ' STAT | ' @key}}
+    <div class="edgerunner__stat col stat--level-{{total}}">
+      <details class="edgerunner__stat--inner col">
+        <summary class="stat__total stat--level-{{total}} col">
+          <h3 class="stat__total--value">
+            <abbr>[{{abbr}}]</abbr>
+            {{total}}
+            {{#if rollFormula}}
+              <button
+                data-flavor="[{{localize 'cp2020.stats.flavor.check'}}] {{name}}"
+                data-roll="{{rollFormula}}"
+                class="stat__roll col"
+              >
+                {{cp2020-dice-icon
+                  sides=10
+                }}
+                check
+              </button>
+            {{/if}}
+            {{#if saveFormula}}
+              <button
+                data-flavor="[{{localize 'cp2020.stats.flavor.save'}}] {{name}}"
+                data-roll="{{saveFormula}}"
+                class="stat__roll col"
+              >
+                {{cp2020-dice-icon
+                  sides=10
+                }}
+                save
+              </button>
+            {{/if}}
+          </h3>
+          <progress class="stat__total--bar" max="{{max}}" value="{{scaleValue}}">{{total}}</progress>
+          <small class="stat__name">{{name}}</small>
+        </summary>
+        <div class="row">
+          <label class="col stat__component">
+            <input
+              name="{{concat 'system.stats.' @key '.natural'}}"
+              type="number"
+              value="{{natural}}"
+            >
+            <small>
+              {{localize 'cp2020.stats.base'}}
+            </small>
+          </label>
+          <label class="col stat__component">
+            <input
+              name="{{concat 'system.stats.' @key '.modifier'}}"
+              type="number"
+              value="{{modifier}}"
+            >
+            <small>
+              {{localize 'cp2020.stats.mod'}}
+            </small>
+          </label>
+        </div>
+      </details>
+    </div>
+  {{/each}}
+</article>

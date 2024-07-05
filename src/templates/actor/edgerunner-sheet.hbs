@@ -1,0 +1,122 @@
+{{systemLog ' ACTOR | ' actor}}
+{{systemLog ' ACTOR-SHEET | ' this}}
+
+<form class="edgerunner-sheet">
+
+  <div class="row">
+    <div class="col identity-col">
+      <div class="row">
+        <div class="col col-1">
+          {{identity actor}}
+        </div>
+        <div class="col col-2">
+          {{!-- Sheet Tab Navigation --}}
+          <nav class="tabs" data-group="personal" data-selector="personal-tabs">
+            {{!-- Default tab is specified in actor-sheet.mjs --}}
+            <a class="item" data-tab="style">Style</a>
+            <a class="item" data-tab="values">Values</a>
+            <a class="item" data-tab="motivations">Motivations</a>
+            <a class="item" data-tab="bio">Bio</a>
+          </nav>
+          <section data-selector="personal-tab-body">
+            <div class="tab style" data-group="personal" data-tab="style">
+              {{style actor}}
+            </div>
+            <div class="tab values" data-group="personal" data-tab="values">
+              {{values actor}}
+            </div>
+            <div class="tab motivations" data-group="personal" data-tab="motivations">
+              {{motivations actor}}
+            </div>
+            <div class="tab bio" data-group="personal" data-tab="bio">
+              {{bio this}}
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      {{portrait actor}}
+      <div class="row">
+        {{stat actor.system.stats}}
+      </div>
+    </div>
+  </div>
+
+
+  <nav class="sheet-tabs tabs" data-selector="primary-tabs" data-group="primary">
+    {{!-- Default tab is specified in actor-sheet.mjs --}}
+    <a class="item" data-tab="skills">Skills</a>
+    <a class="item" data-tab="combat">Combat</a>
+    <a class="item" data-tab="outfit">Outfit</a>
+    <a class="item" data-tab="cyberware">Chrome</a>
+    <a class="item" data-tab="rides">Rides</a>
+    <a class="item" data-tab="hack">Hack</a>
+  </nav>
+  <section data-selector="primary-tab-body">
+    <article  class="tab" data-tab="skills">
+      <h3>Skills</h3>
+      <ul class="item-list">
+        {{#each actor.itemTypes.Skill}}
+          {{skill this index=@index}}
+        {{/each}}
+      </ul>
+    </article>
+    <article  class="tab" data-tab="combat">
+      <h3>Health</h3>
+      <h3>Armor</h3>
+      <figure class="mannequin {{armorLocationClasses}}">
+        {{{characterSilhouette}}}
+      </figure>
+      <ul class="item-list">
+        {{#each actor.itemTypes.Armor }}
+          {{armor this}}
+        {{/each}}
+      </ul>
+      <h3>Weapons</h3>
+      <ul class="item-list">
+        {{#each actor.itemTypes.Weapon}}
+          {{weapon this}}
+        {{/each}}
+      </ul>
+    </article>
+    <article  class="tab" data-tab="outfit">
+      <h3>Outfit</h3>
+      <ul class="item-list">
+        {{#each actor.itemTypes.Outfit}}
+          {{outfit this}}
+        {{/each}}
+      </ul>
+    </article>
+    <article  class="tab" data-tab="cyberware">
+      <h3>Chrome</h3>
+      <ul class="item-list">
+        {{#each actor.itemTypes.Cyberware}}
+          {{cyberware this}}
+        {{/each}}
+      </ul>
+    </article>
+    <article  class="tab" data-tab="rides">
+      <h3>Vehicles</h3>
+      <ul class="item-list">
+        {{#each actor.itemTypes.Vehicle}}
+          {{vehicle this}}
+        {{/each}}
+      </ul>
+    </article>
+    <article  class="tab" data-tab="hack">
+      <h3>Cyberdecks</h3>
+      <ul class="item-list">
+        {{#each actor.itemTypes.Cyberdeck}}
+          {{cyberdeck this}}
+        {{/each}}
+      </ul>
+      <h3>Programs</h3>
+      <ul class="item-list">
+        {{#each actor.itemTypes.Program}}
+          {{program this}}
+        {{/each}}
+      </ul>
+    </article>
+  </section>
+</form>

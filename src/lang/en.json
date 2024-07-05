@@ -4,8 +4,12 @@
       "label": "Stats",
       "mod": "mod",
       "base": "base",
-      "dam": "dam",
+      "damageMod": "dam",
       "total": "total",
+      "flavor": {
+        "check": "Statistic Check",
+        "save": "Statistic Save"
+      },
       "INT": {
         "short": "INT",
         "long": "Intelligence"
@@ -22,8 +26,8 @@
         "short": "CL",
         "long": "Cool"
       },
-      "ATT": {
-        "short": "ATT",
+      "ATTR": {
+        "short": "ATTR",
         "long": "Attractiveness"
       },
       "LUCK": {
@@ -69,6 +73,18 @@
       "LIFT": {
         "short": "LIFT",
         "long": "Lift"
+      },
+      "THRO": {
+        "short": "THRO",
+        "long": "Throw"
+      },
+      "BTM": {
+        "short": "BTM",
+        "long": "Body Type Modifier"
+      },
+      "DAM": {
+        "short": "DM",
+        "long": "Damage Modifier"
       }
     },
     "units": {
@@ -127,7 +143,7 @@
       },
       "skill": {
         "label": "Skills",
-        "flavor": "Skill Name",
+        "nameLabel": "Skill Name",
         "description": "Details",
         "notes": "Notes",
         "source": "Source",
@@ -140,7 +156,8 @@
         "isChipped": "Chipped",
         "ip": "IP",
         "ipMultiplier": "IP Multiplier",
-        "stat": "Stat"
+        "stat": "Stat",
+        "flavorLead": "Skill Check"
       },
       "armor": {
         "label": "Armor",
@@ -153,8 +170,9 @@
           "short": "EV"
         }
       },
-      "cyberwear": {
-        "label": "Cyberwear",
+      "cyberware": {
+        "label": "Cyberware",
+        "equipped": "active",
         "humanityCost": {
           "long": "Humanity Cost",
           "short": "HC"
@@ -205,7 +223,7 @@
       },
       "program": {
         "label": "Programs",
-        "memoryUnits": {
+        "memory": {
           "long": "Memory Units",
           "short": "MU"
         },
@@ -405,8 +423,8 @@
     "siblings": {
       "age": "relative age",
       "ages": {
-        "younger": "older",
-        "older": "younger",
+        "younger": "Younger",
+        "older": "older",
         "twin": "twin"
       },
       "gender": "gender",
@@ -431,6 +449,11 @@
         "programs": "Import Program Data",
         "vehicles": "Import Vehicle Data"
       }
+    },
+    "SheetLabels": {
+      "Item": "Outfit Sheet",
+      "Weapon": "Weapon Sheet",
+      "Cyberware": "Cyberware Sheet"
     }
   }
 }

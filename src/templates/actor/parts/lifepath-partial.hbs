@@ -1,0 +1,23 @@
+{{systemLog 'BIO | LIFEPATH | ' this}}
+<div class="legend">Lifepath</div>
+<article class="fieldset">
+  <ul>
+  {{systemLog ' LIFEPATH THIS | ' this}}
+  {{#each this}}
+    {{systemLog ' LIFEPATH YEAR | ' this}}
+    <li>
+      {{cp2020-input
+        name=(concat 'system.bio.lifepath.' @index '.year')
+        value=year
+        type='text'
+        label='cp2020.lifepath.year'
+      }}
+      {{editor event target=(concat 'system.bio.lifepath.' @index '.event') engine="prosemirror"}}
+    </li>
+  {{/each}}
+  </ul>
+  {{cp2020-button
+    label='add'
+    action='add-lifepath-row'
+  }}
+</article>

@@ -1,0 +1,43 @@
+{{systemLog ' BIO | SIBLINGS | ' this}}
+<div class="legend">Siblings {{system.bio.family.siblingCount}}</div>
+<article class="fieldset">
+  <ul>
+    {{#each system.bio.siblings}}
+    <li>
+      {{cp2020-input
+        name=(concat 'system.bio.siblings.' @index '.name')
+        value=name
+        type='text'
+        label='cp2020.siblings.name'
+      }}
+      {{cp2020-input
+        name=(concat 'system.bio.siblings.' @index '.handle')
+        value=handle
+        type='text'
+        label='cp2020.siblings.handle'
+      }}
+      {{cp2020-input
+        name=(concat 'system.bio.siblings.' @index '.gender')
+        value=gender
+        type='text'
+        label='cp2020.siblings.gender'
+      }}
+      {{cp2020-select
+        label="cp2020.siblings.age"
+        name=(concat 'system.bio.siblings.' @index '.relativeAge')
+        value=relativeAge
+        inverted=true
+        options=@root.RELATIVE_AGE_SELECT_OPTIONS
+      }}
+      {{editor event
+        target=(concat 'system.bio.siblings.' @index '.relationshipNotes')
+        engine="prosemirror" editable='true'
+      }}
+    </li>
+    {{/each}}
+  </ul>
+  {{cp2020-button
+    label='add'
+    action='add-sibling'
+  }}
+</article>

@@ -1,0 +1,43 @@
+{{systemLog ' BIO | FAMILY | ' this}}
+<div class="legend">Family</div>
+<article class="fieldset">
+  {{#with this.system}}
+    {{cp2020-input
+      name='system.bio.family.ethnicity'
+      value=family.ethnicity
+      type='text'
+      label='cp2020.family.ethnicity'
+    }}
+    {{cp2020-input
+      name='system.bio.family.language'
+      value=family.language
+      type='text'
+      label='cp2020.family.language'
+    }}
+    {{cp2020-input
+      name='system.bio.family.parents'
+      value=family.parents
+      type='text'
+      label='cp2020.family.parents'
+    }}
+    {{cp2020-input
+      name='system.bio.family.ranking'
+      value=family.ranking
+      type='text'
+      label='cp2020.family.ranking'
+    }}
+    {{cp2020-input
+      name='system.bio.family.status'
+      value=family.status
+      type='text'
+      label='cp2020.family.status'
+    }}
+    {{cp2020-input
+      name='system.bio.family.childhood'
+      value=family.childhood
+      type='text'
+      label='cp2020.family.childhood'
+    }}
+  {{/with}}
+  {{siblings this}}
+</article>
