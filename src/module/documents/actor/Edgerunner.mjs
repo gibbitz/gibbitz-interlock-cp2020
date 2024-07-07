@@ -15,7 +15,7 @@ export class Edgerunner extends Actor {
    */
   prepareDerivedData() {
     const actorData = this;
-    const flags = actorData.flags.gibbitzinterlockcp2020 || {};
+    const flags = actorData?.flags.gibbitzinterlockcp2020 || {};
   }
 
   /**

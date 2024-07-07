@@ -2,7 +2,8 @@ import { ACTOR_DOCUMENT_TYPES } from '@constants';
 import { Edgerunner } from './actor';
 
 /**
- * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
+ * Hacks the single Item Document limitation of Foundry through composition
+ * Whenever new methods are added to any child classes they will need to be added here as well
  * @extends {Actor}
  */
 export class Cp2020Actor extends Actor {
