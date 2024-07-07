@@ -1,6 +1,8 @@
 {
   "Actor": {
-    "types": ["Edgerunner"]
+    "types": [
+      "Edgerunner"
+    ]
   },
   "Item": {
     "types": [

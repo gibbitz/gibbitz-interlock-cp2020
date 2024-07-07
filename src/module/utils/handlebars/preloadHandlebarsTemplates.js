@@ -1,4 +1,4 @@
-import { HBS_TEMPLATES } from '../../constants';
+import { HBS_TEMPLATES } from '@constants';
 
 /**
  * Define a set of template paths to pre-load

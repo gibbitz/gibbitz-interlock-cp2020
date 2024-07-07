@@ -5,7 +5,7 @@ import {
   DAMAGE_MODIFIER,
   HIT_LOCATIONS,
   WOUND_TYPES
-} from "../constants";
+} from "@constants";
 
 export class Edgerunner extends foundry.abstract.TypeDataModel {
 

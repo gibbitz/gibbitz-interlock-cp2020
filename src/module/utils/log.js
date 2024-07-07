@@ -1,4 +1,4 @@
-import { SYSTEM_NAME } from '../constants/system'
+import { SYSTEM_NAME } from '@constants'
 /**
  * wrapper for console.log to control output chatter via configuration
  * @param  {...any} args logging payload

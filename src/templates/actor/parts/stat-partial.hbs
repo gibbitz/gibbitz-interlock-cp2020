@@ -12,7 +12,7 @@
             {{#if rollFormula}}
               <button
                 data-flavor="[{{localize 'cp2020.stats.flavor.check'}}] {{name}}"
-                data-roll="{{rollFormula}}"
+                data-roll-formula="{{rollFormula}}"
                 class="stat__roll col"
               >
                 {{cp2020-dice-icon
@@ -24,7 +24,7 @@
             {{#if saveFormula}}
               <button
                 data-flavor="[{{localize 'cp2020.stats.flavor.save'}}] {{name}}"
-                data-roll="{{saveFormula}}"
+                data-roll-formula="{{saveFormula}}"
                 class="stat__roll col"
               >
                 {{cp2020-dice-icon

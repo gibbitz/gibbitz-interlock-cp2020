@@ -19,10 +19,3 @@ export const WEAPON_TYPES = [
   PISTOL,
   MELEE
 ]
-
-export const buildWeaponTypeSelectOptions = (i18n) =>
-  translateObjectKeysFromValues(
-    i18n,
-    WEAPON_TYPES,
-    (val) => `${WEAPON_TYPE_I18N_BASE}.${val}.long`
-  )

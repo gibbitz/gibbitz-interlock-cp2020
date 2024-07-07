@@ -53,18 +53,6 @@ export const ALL_STATS = [
   ...SIMPLE_STATS,
   ...DERIVED_STATS
 ]
-/**
- * builds key value pairs of the localized Core Stat name and the internal Stat abbreviation
- * for use as select <option/>s
- * @param {Object} i18n the internationalization class from Foundry that provides the localize function
- * @returns {Object} key -> value pairs of name and abbreviation
- */
-export const buildStatSelectOptions = (i18n) =>
-  translateObjectValuesFromKeys(
-    i18n,
-    CORE_STATS,
-    (val) => `${STATS_I18N_BASE}.${val}.long`
-  )
 
 export const BTM_VALUES = [
   0,

@@ -1,10 +1,12 @@
-import { GET_HBS_ITEM_TEMPLATE_PATH } from '../constants';
-import { systemLog } from '../utils/log'
+import { GET_HBS_ITEM_TEMPLATE_PATH } from '@constants'
 import {
   onManageActiveEffect,
   prepareActiveEffectCategories,
-} from '../helpers/effects.mjs';
-import { appendSystemConstants } from '../utils/appendSystemConstants';
+} from '@effects'
+import {
+  appendSystemConstants,
+  systemLog
+} from '@utils'
 
 /**
  * Extend the basic ItemSheet with some very simple modifications

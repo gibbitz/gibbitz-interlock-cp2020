@@ -1,10 +1,12 @@
-import { HBS_ACTOR_TEMPLATE_PATH } from '../constants';
+import { HBS_ACTOR_TEMPLATE_PATH } from '@constants';
 import {
   onManageActiveEffect,
   prepareActiveEffectCategories,
-} from '../helpers/effects.mjs';
-import { appendSystemConstants } from '../utils/appendSystemConstants';
-import { systemLog } from '../utils/log';
+} from '@effects';
+import {
+  appendSystemConstants,
+  systemLog
+ } from '@utils';
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -182,10 +184,10 @@ export class EdgerunnerSheet extends ActorSheet {
 
     // handle inline item rolling
 
-    html.find('[data-roll]').on('click', ({ target }) => {
+    html.find('[data-roll-formula]').on('click', ({ target }) => {
       const flavorFallback = 'Rolls the dice...'
       const {
-        roll: rollFormula,
+        rollFormula,
         flavor = flavorFallback
       } = target.dataset
       const roll = new Roll(rollFormula, this.actor.getRollData());
@@ -199,6 +201,12 @@ export class EdgerunnerSheet extends ActorSheet {
         rollMode: game.settings.get('core', 'rollMode'),
       });
       return roll;
+    })
+
+    html.find('[data-roll]').on('click', ({ target }) => {
+      const { uuid } = target.dataset
+      const item = this.actor.items.get(uuid)
+      item.roll()
     })
 
     // TODO: deal with this....
@@ -216,41 +224,39 @@ export class EdgerunnerSheet extends ActorSheet {
     // Drag events for macros.
     if (this.actor.isOwner) {
       let handler = (ev) => this._onDragStart(ev);
-      html.find('li.item').each((i, li) => {
+      html.find('li.item:not(.inventory-header)').each((i, li) => {
         if (li.classList.contains('inventory-header')) return;
         li.setAttribute('draggable', true);
         li.addEventListener('dragstart', handler, false);
       });
+      html.find('.stat__roll').each((_i, stat) => {
+        stat.setAttribute('draggable', true)
+        stat.addEventListener('dragstart', handler, false)
+      })
     }
   }
 
   /**
-   * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
-   * @param {Event} event   The originating click event
-   * @private
+   * Handle Drag-n-dorp start.
+   * @param {Event} evt   The originating drag event
+   * @override
    */
-  // async _onItemCreate(event) {
-  //   event.preventDefault();
-  //   const header = event.currentTarget;
-  //   // Get the type of item to create.
-  //   const type = header.dataset.type;
-  //   // Grab any data associated with this control.
-  //   const data = duplicate(header.dataset);
-  //   // Initialize a default name.
-  //   const name = `New ${type.capitalize()}`;
-  //   // Prepare the item object.
-  //   const itemData = {
-  //     name: name,
-  //     type: type,
-  //     system: data,
-  //   };
-  //   // Remove the type from the dataset since it's in the itemData.type prop.
-  //   delete itemData.system['type'];
-
-  //   // Finally, create the item!
-  //   return await Item.create(itemData, { parent: this.actor });
-  // }
-
+  _onDragStart(evt) {
+    const { target } = evt
+    if (!target.classList.contains('stat__roll')) {
+      return super._onDragStart(evt)
+    }
+    // stat drops pass the stat's roll formula and flavor
+    // to the hotbar
+    const { rollFormula, flavor } = target.dataset
+    const dragData = {
+      type: 'Stat',
+      formula: rollFormula,
+      flavor,
+      uuid: this.actor._id
+    }
+    evt.dataTransfer.setData('text/plain', JSON.stringify(dragData))
+  }
   /**
    * Handle clickable rolls.
    * @param {Event} event   The originating click event

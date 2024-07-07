@@ -40,15 +40,3 @@ export const WEIGHTED_HIT_LOCATIONS = {
 
 export const HIT_LOCATIONS = Object.keys(WEIGHTED_HIT_LOCATIONS)
 export const WOUND_TYPES = ['bruise', 'penetrating']
-/**
- * builds key value pairs of the localized Hit Location name and the internal Hit Location subpath
- * for use as select <option/>s
- * @param {Object} i18n the internationalization class from Foundry that provides the localize function
- * @returns {Object} key -> value pairs of name and abbreviation
- */
-export const buildLocationOptions = (i18n) =>
-  translateObjectValuesFromKeys(
-    i18n,
-    HIT_LOCATIONS,
-    (val) => `${HIT_LOCATION_I18N_BASE}.${val}`
-  )

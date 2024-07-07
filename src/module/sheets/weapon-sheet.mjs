@@ -1,4 +1,4 @@
-import { systemLog } from '../utils/log';
+import { systemLog } from '@utils';
 import { OutfitSheet } from './outfit-sheet.mjs';
 
 /**

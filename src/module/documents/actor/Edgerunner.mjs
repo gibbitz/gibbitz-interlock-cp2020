@@ -1,11 +1,10 @@
-import { CORE_STATS } from '../constants';
-import { systemLog } from '../utils/log';
+import { systemLog } from '../../utils/log';
 
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
  */
-export class EdgerunnerActor extends Actor {
+export class Edgerunner extends Actor {
   /** @override */
   prepareData() {
     // Prepare data for the actor. Calling the super version of this executes

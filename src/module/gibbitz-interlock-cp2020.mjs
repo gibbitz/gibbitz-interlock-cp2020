@@ -1,17 +1,10 @@
-import { systemLog } from './utils/log.js';
-//Import system constants
-import { SYSTEM_PROJECT_NAME, SYSTEM_NAME } from './constants/system'
-// Import document classes.
-import { EdgerunnerActor, OutfitItem } from './documents';
-// Import sheet classes.
-import { EdgerunnerSheet } from './sheets/edgerunner-sheet.mjs';
-import { OutfitSheet } from './sheets/outfit-sheet.mjs';
-import { WeaponSheet } from './sheets/weapon-sheet.mjs';
-// Import helper/utility classes and constants.
-import { preloadHandlebarsTemplates } from './helpers/handlebars/preloadHandlebarsTemplates.mjs';
-import { registerHandlebarsHelpers } from './helpers/handlebars/registerHandlebarsHelpers.js';
-import { CP_2020 } from './constants/system.js';
-// Import DataModel classes
+// system constants
+import { SYSTEM_PROJECT_NAME, SYSTEM_NAME, CP_2020 } from '@constants'
+
+// document classes
+import { Cp2020Actor, Cp2020Item } from '@documents';
+
+// data model classes
 import {
   Edgerunner,
   Cyberdeck,
@@ -21,21 +14,37 @@ import {
   Skill,
   Vehicle,
   Weapon
-} from './data/index.mjs';
-import { CyberwareSheet } from './sheets/cyberware-sheet.mjs';
+} from '@models';
 
-/* -------------------------------------------- */
-/*  Init Hook                                   */
-/* -------------------------------------------- */
+// sheet classes.
+import {
+  CyberwareSheet,
+  EdgerunnerSheet,
+  OutfitSheet,
+  WeaponSheet
+} from '@sheets';
+
+// helpers/utilities
+import {
+  createHotbarMacro,
+  createItemRollMacro,
+  createChatRollMacro,
+  preloadHandlebarsTemplates ,
+  registerHandlebarsHelpers,
+  systemLog
+} from '@utils';
+
+registerHandlebarsHelpers()
 
 Hooks.on('init', function () {
   systemLog(`> Initializing ${SYSTEM_PROJECT_NAME}`)
   // Add utility classes to the global game object so that they're more easily
   // accessible in global contexts.
   game.gibbitzinterlockcp2020 = {
-    EdgerunnerActor,
-    OutfitItem,
-    rollItemMacro,
+    Cp2020Actor,
+    Cp2020Item,
+    createItemRollMacro,
+    createChatRollMacro
   };
 
   // Add custom constants for configuration.
@@ -46,12 +55,12 @@ Hooks.on('init', function () {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: '1d10 + @stats.ref.total',
+    formula: '1d10x + @stats.ref.total',
     decimals: 2,
   };
 
   // Define custom Document and DataModel classes
-  CONFIG.Actor.documentClass = EdgerunnerActor;
+  CONFIG.Actor.documentClass = Cp2020Actor;
 
   // Note that you don't need to declare a DataModel
   // for the base actor/item classes - they are included
@@ -59,7 +68,7 @@ Hooks.on('init', function () {
   CONFIG.Actor.dataModels = {
     Edgerunner
   }
-  CONFIG.Item.documentClass = OutfitItem;
+  CONFIG.Item.documentClass = Cp2020Item;
   CONFIG.Item.dataModels = {
     Cyberdeck,
     Cyberware,
@@ -107,82 +116,10 @@ Hooks.on('init', function () {
 });
 
 /* -------------------------------------------- */
-/*  Handlebars Helpers                          */
-/* -------------------------------------------- */
-
-registerHandlebarsHelpers()
-
-/* -------------------------------------------- */
 /*  Ready Hook                                  */
 /* -------------------------------------------- */
 
 Hooks.once('ready', function () {
-  // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-  Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot));
+  // Wait to register hotbar drop hook on ready
+  Hooks.on('hotbarDrop', (_bar, data, slot) => createHotbarMacro(data, slot));
 });
-
-/* -------------------------------------------- */
-/*  Hotbar Macros                               */
-/* -------------------------------------------- */
-
-/**
- * Create a Macro from an Item drop.
- * Get an existing item macro if one exists, otherwise create a new one.
- * @param {Object} data     The dropped data
- * @param {number} slot     The hotbar slot to use
- * @returns {Promise}
- */
-async function createItemMacro(data, slot) {
-  // First, determine if this is a valid owned item.
-  if (data.type !== 'Item') return;
-  if (!data.uuid.includes('Actor.') && !data.uuid.includes('Token.')) {
-    return ui.notifications.warn(
-      'You can only create macro buttons for owned Items'
-    );
-  }
-  // If it is, retrieve it based on the uuid.
-  const item = await Item.fromDropData(data);
-
-  // Create the macro command using the uuid.
-  const command = `game.gibbitzinterlockcp2020.rollItemMacro("${data.uuid}");`;
-  let macro = game.macros.find(
-    (m) => m.name === item.name && m.command === command
-  );
-  if (!macro) {
-    macro = await Macro.create({
-      name: item.name,
-      type: 'script',
-      img: item.img,
-      command: command,
-      flags: { 'gibbitz-interlock-cp2020.itemMacro': true },
-    });
-  }
-  game.user.assignHotbarMacro(macro, slot);
-  return false;
-}
-
-/**
- * Create a Macro from an Item drop.
- * Get an existing item macro if one exists, otherwise create a new one.
- * @param {string} itemUuid
- */
-function rollItemMacro(itemUuid) {
-  // Reconstruct the drop data so that we can load the item.
-  const dropData = {
-    type: 'Item',
-    uuid: itemUuid,
-  };
-  // Load the item from the uuid.
-  Item.fromDropData(dropData).then((item) => {
-    // Determine if the item loaded and if it's an owned item.
-    if (!item || !item.parent) {
-      const itemName = item?.name ?? itemUuid;
-      return ui.notifications.warn(
-        `Could not find item ${itemName}. You may need to delete and recreate this macro.`
-      );
-    }
-
-    // Trigger the item roll
-    item.roll();
-  });
-}

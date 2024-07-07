@@ -51,6 +51,7 @@
     "@babel/core": "^7.23.2",
     "@babel/plugin-transform-modules-commonjs": "^7.23.0",
     "@babel/preset-env": "^7.23.2",
+    "@rollup/plugin-alias": "^5.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
     "babel-jest": "^29.7.0",

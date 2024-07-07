@@ -14,10 +14,3 @@ export const WEAPON_CONCEALABILITIES = [
   LONG_COAT_CONCEALABLE,
   NOT_CONCEALABLE
 ]
-
-export const buildConcealabilitySelectOptions = (i18n) =>
-  translateObjectKeysFromValues(
-    i18n,
-    WEAPON_CONCEALABILITIES,
-    (val) => `${WEAPON_CONCEALABILITY_I18N_BASE}.${val}.long`
-  )

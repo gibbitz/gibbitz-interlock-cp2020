@@ -14,11 +14,3 @@ export const ITEM_AVAILABILITIES = [
   COMMON_AVAILABILITY,
   EXCELLENT_AVAILABILITY
 ]
-
-export const buildAvailabilitiesSelectOptions = (i18n) =>
-  translateObjectValuesFromKeys(
-    i18n,
-    ITEM_AVAILABILITIES,
-    (val) => `${ITEM_AVAILABILITY_I18N_BASE}.${val}.long`
-  )
-

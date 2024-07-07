@@ -1,5 +1,5 @@
+import { systemLog } from '@utils'
 import { metaSchema, skillSchema } from './oufitSchema.mjs'
-import { systemLog } from '../utils/log'
 export class Skill extends foundry.abstract.TypeDataModel {
 // extend ItemMeta
   static defineSchema() {

@@ -1,5 +1,5 @@
-import { systemLog } from '../../utils/log'
-import { HBS_TEMPLATE_HELPER_PARAMS } from '../../constants/handlebars'
+import { systemLog } from '@utils/log'
+import { HBS_TEMPLATE_HELPER_PARAMS } from '@constants/handlebars'
 
 /**
  * registers a handlebars helper function from a partial given the helper name and the complete path to the partial file
