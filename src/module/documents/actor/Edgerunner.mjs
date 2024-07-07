@@ -1,25 +1,11 @@
-import { systemLog } from '../../utils/log';
+import { systemLog } from '@utils'
+import { EdgerunnerSheet } from '@sheets'
 
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
  */
 export class Edgerunner extends Actor {
-  /** @override */
-  prepareData() {
-    // Prepare data for the actor. Calling the super version of this executes
-    // the following, in order: data reset (to clear active effects),
-    // prepareBaseData(), prepareEmbeddedDocuments() (including active effects),
-    // prepareDerivedData().
-    super.prepareData();
-  }
-
-  /** @override */
-  prepareBaseData() {
-    // Data modifications in this step occur before processing embedded
-    // documents or derived data.
-  }
-
   /**
    * @override
    * Augment the actor source data with additional dynamic data that isn't

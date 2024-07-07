@@ -12,7 +12,7 @@ export class Skill extends foundry.abstract.TypeDataModel {
   }
   prepareDerivedData() {
     systemLog(' SKILL prepareDerivedData | ', this)
-    const rollFormula = `1d10x + @stats.${this.stat.toLowerCase()}.total + ${this.level}`
+    const rollFormula = `1d10x + @stats.${this.stat?.toLowerCase()}.total + ${this.level}`
     // TODO:
     // detect combat sense and other modifier skills
     // check character for equipped modifier outfit and cyberware

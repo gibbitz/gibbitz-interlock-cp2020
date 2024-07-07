@@ -49,6 +49,12 @@ export const weaponSchema = () => ({
   accuracy: new NumberField(requiredUninitialized)
 })
 
+export const upgradeSchema = () => ({
+  recipient: new StringField(requiredBlank), // document type
+  property: new StringField(requiredBlank), // property to modify
+  value: new NumberField(requiredUninitialized) // bonus (or penalty)
+})
+
 export const rangedSchema = () => ({
   range: new NumberField(optionalUninitialized),
   magazine: new NumberField(optionalUninitialized),

@@ -221,6 +221,21 @@
           "short": "CPU"
         }
       },
+      "upgrade": {
+        "label": "Upgrade",
+        "recipient": {
+          "long": "Modified Item Type",
+          "short": "Modded"
+        },
+        "value": {
+          "long": "Bonus/Penalty",
+          "short": "Delta"
+        },
+        "property": {
+          "long": "Property to Modify",
+          "short": "Prop"
+        }
+      },
       "program": {
         "label": "Programs",
         "memory": {

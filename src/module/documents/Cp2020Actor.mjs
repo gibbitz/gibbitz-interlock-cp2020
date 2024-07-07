@@ -8,15 +8,26 @@ import { Edgerunner } from './actor';
 export class Cp2020Actor extends Actor {
   /** @override */
   constructor(...args) {
+    super(...args)
     const [{ type }] = args
     switch (type) {
       case ACTOR_DOCUMENT_TYPES.NPC:
-        return new Edgerunner(...args)
-        break
       case ACTOR_DOCUMENT_TYPES.EDGERUNNER:
       default:
-        return new Edgerunner(...args)
+        this._subActor = new Edgerunner(...args)
         break
     }
+  }
+  prepareDerivedData(...args) {
+    this._subActor?.prepareDerivedData(...args)
+  }
+  getRollData(...args) {
+    this._subActor.getRollData(...args)
+  }
+  addLifeEvent(...args) {
+    this._subActor.addLifeEvent(...args)
+  }
+  addSibling(...args) {
+    this._subActor.addSibling(...args)
   }
 }

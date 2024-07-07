@@ -9,6 +9,7 @@ export const ITEM_DOCUMENT_TYPES = {
   PROGRAM: 'Program',
   SKILL: 'Skill',
   CYBERWARE: 'Cyberware',
+  UPGRADE: 'Upgrade',
   VEHICLE: 'Vehicle',
   WEAPON: 'Weapon',
   MAGAZINE: 'Magazine',

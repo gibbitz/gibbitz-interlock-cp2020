@@ -13,7 +13,8 @@ import {
   Program,
   Skill,
   Vehicle,
-  Weapon
+  Weapon,
+  Upgrade
 } from '@models';
 
 // sheet classes.
@@ -75,8 +76,9 @@ Hooks.on('init', function () {
     Outfit,
     Program,
     Skill,
+    Upgrade,
     Vehicle,
-    Weapon
+    Weapon,
   }
 
   // Active Effects are never copied to the Actor,
@@ -106,7 +108,8 @@ Hooks.on('init', function () {
       'Outfit',
       'Program',
       'Skill',
-      'Vehicle'
+      'Vehicle',
+      'Upgrade'
     ],
     label: `${SYSTEM_NAME}.SheetLabels.Item`,
   });

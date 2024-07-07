@@ -6,6 +6,7 @@ import { Cp2020BaseItem } from './Cp2020BaseItem.mjs';
  * @extends {Cp2020BaseItem}
  */
 export class Weapon extends Cp2020BaseItem {
+
   /** @override */
   prepareData() {
     systemLog('WEAPON DOCUMENT PREPARE_DATA | ', this)

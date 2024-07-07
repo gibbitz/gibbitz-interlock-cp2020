@@ -1,10 +1,11 @@
 import { weaponSchema, rangedSchema, explosiveSchema } from "./oufitSchema.mjs";
 import { Outfit } from "./Outfit.mjs";
 
+const { StringField } = foundry.data.fields;
+
 export class Weapon extends Outfit {
 
   static defineSchema() {
-    const { StringField } = foundry.data.fields;
     const schema = super.defineSchema();
     return {
       ...schema,

@@ -6,6 +6,7 @@ import { Cp2020BaseItem } from './Cp2020BaseItem.mjs'
  * @extends {Cp2020BaseItem}
  */
 export class Skill extends Cp2020BaseItem {
+
   /**
    * Handle clickable rolls.
    * @public
