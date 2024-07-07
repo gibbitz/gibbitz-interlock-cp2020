@@ -11,24 +11,20 @@ export class Cp2020Actor extends Actor {
   constructor(...args) {
     super(...args)
     const [{ type }] = args
+    let character
     switch (type) {
       case ACTOR_DOCUMENT_TYPES.NPC:
       case ACTOR_DOCUMENT_TYPES.EDGERUNNER:
       default:
-        this._subActor = new Edgerunner(...args)
+        character = new Edgerunner(...args)
         break
     }
-  }
-  prepareDerivedData(...args) {
-    this._subActor?.prepareDerivedData(...args)
-  }
-  getRollData(...args) {
-    this._subActor.getRollData(...args)
-  }
-  addLifeEvent(...args) {
-    this._subActor.addLifeEvent(...args)
-  }
-  addSibling(...args) {
-    this._subActor.addSibling(...args)
+    // set any properties
+    Object.assign(this, character)
+    // set expected methods
+    // (not using SET/GET so skipped in Object.assign)
+    this.getRollData = character.getRollData
+    this.addLifeEvent = character.addLifeEvent
+    this.addSibling = character.addSibling
   }
 }

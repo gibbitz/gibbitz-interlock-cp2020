@@ -16,26 +16,24 @@ export class Cp2020Item extends Item {
   constructor(...args) {
     super(...args)
     const [{ type }] = args
+    let gadget
     switch (type) {
       case ITEM_DOCUMENT_TYPES.SKILL:
-        this._subItem = new Skill(...args)
+        gadget = new Skill(...args)
         break
       case ITEM_DOCUMENT_TYPES.WEAPON:
-        this._subItem = new Weapon(...args)
+        gadget = new Weapon(...args)
         break
       case ITEM_DOCUMENT_TYPES.OUTFIT:
       default:
-        this._subItem = new Outfit(...args)
+        gadget = new Outfit(...args)
         break
     }
-  }
-  prepareData(){
-    this._subItem?.prepareData()
-  }
-  getRollData(){
-    return this._subItem.getRollData()
-  }
-  roll(){
-    return this._subItem?.roll()
+    Object.assign(this, gadget)
+    // set expected methods
+    // (not using SET/GET so skipped in Object.assign)
+    this.getRollData = gadget.getRollData
+    this.prepareData = gadget.prepareData
+    this.roll = gadget.roll
   }
 }

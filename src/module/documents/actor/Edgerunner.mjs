@@ -1,5 +1,4 @@
 import { systemLog } from '@utils'
-import { EdgerunnerSheet } from '@sheets'
 
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
