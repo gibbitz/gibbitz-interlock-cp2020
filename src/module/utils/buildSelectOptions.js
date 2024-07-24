@@ -1,11 +1,13 @@
-import { translateObjectKeysFromValues } from './translateObjectKeysFromValues'
-import { translateObjectValuesFromKeys } from './translateObjectValuesFromKeys'
+import { translateObjectKeysFromValues } from './i18n/translateObjectKeysFromValues'
+import { translateObjectValuesFromKeys } from './i18n/translateObjectValuesFromKeys'
 import {
   CORE_STATS,
   HIT_LOCATIONS,
   HIT_LOCATION_I18N_BASE,
   ITEM_AVAILABILITIES,
   ITEM_AVAILABILITY_I18N_BASE,
+  ITEM_DOCUMENT_TYPES,
+  ITEM_I18N_BASE,
   MODIFIER_TYPES,
   CYBERWEAR_MODIFIER_TYPE_I18N_BASE,
   RELATIVE_AGE_I18N_BASE,
@@ -107,4 +109,16 @@ export const buildWeaponTypeSelectOptions = (i18n) =>
     i18n,
     WEAPON_TYPES,
     (val) => `${WEAPON_TYPE_I18N_BASE}.${val}.long`
+  )
+/**
+ * builds key value pairs of the localized Item Document Types (Outfit, Weapon, Cyberware, etc.)
+ * for use as select <option/>s
+ * @param {Localization} i18n the i18n class that provides the localize function
+ * @returns {Object} key -> value pairs like `{ heavyWeapons: 'Heavy Weapons' }`
+ */
+export const buildItemTypeSelectOptions = (i18n) =>
+  translateObjectKeysFromValues(
+    i18n,
+    Object.values(ITEM_DOCUMENT_TYPES),
+    (val) => `${ITEM_I18N_BASE}.${(val?.toLowerCase())}.label`
   )

@@ -26,9 +26,10 @@ export class Edgerunner extends Actor {
    * but have slightly different data preparation needs.
    */
   getRollData() {
+    const { itemTypes } = this
     const rollData = {
       ...super.getRollData(),
-      ...this.system.getRollData?.() ?? null
+      ...itemTypes
     }
     systemLog('EDGERUNNER ROLLDATA | ', rollData)
     return rollData

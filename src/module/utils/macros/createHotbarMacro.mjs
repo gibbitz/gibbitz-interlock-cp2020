@@ -21,7 +21,7 @@ export const createHotbarMacro = (data, slot) => {
       );
       if (!macro) {
         macro = Macro.create({
-          name: 'stat roll',
+          name: `${flavor}`,
           type: 'script',
           command: cmd,
           flags: { 'gibbitz-interlock-cp2020.statMacro': true },

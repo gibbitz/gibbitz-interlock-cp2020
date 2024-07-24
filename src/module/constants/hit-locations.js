@@ -1,4 +1,3 @@
-import { translateObjectValuesFromKeys } from '../utils/translateObjectValuesFromKeys'
 import { SYSTEM_NAME } from './system'
 
 export const HIT_LOCATION_I18N_BASE = `${SYSTEM_NAME}.hitLocations`

@@ -1,10 +1,14 @@
+import { Cp2020Item } from '@documents/Cp2020Item.mjs';
+// import { Upgrade } from './Upgrade.mjs';
+
 const {
   HTMLField,
   SchemaField,
   NumberField,
   StringField,
   ArrayField,
-  BooleanField
+  BooleanField,
+  ForeignDocumentField
 } = foundry.data.fields;
 
 const requiredBlank = { required: true, blank: true }
@@ -32,8 +36,7 @@ export const econSchema = () => ({
 
 export const encumberanceSchema = () => ({
   equipped: new BooleanField(initialFalse),
-  weight: new NumberField(requiredUninitialized),
-  quantity: new NumberField(requiredInitialOne)
+  weight: new NumberField(requiredUninitialized)
 })
 
 export const resiliencySchema = () => ({
@@ -41,12 +44,8 @@ export const resiliencySchema = () => ({
   StructuralDamagePoints: new NumberField(requiredUninitialized),
 })
 
-export const weaponSchema = () => ({
-  type: new StringField(requiredBlank),
-  skill: new StringField(requiredBlank),
-  damage: new StringField(requiredBlank),
-  concealability: new StringField(requiredBlank),
-  accuracy: new NumberField(requiredUninitialized)
+export const consumableSchema = () => ({
+  quantity: new NumberField(requiredUninitialized)
 })
 
 export const upgradeSchema = () => ({
@@ -55,15 +54,31 @@ export const upgradeSchema = () => ({
   value: new NumberField(requiredUninitialized) // bonus (or penalty)
 })
 
+export const weaponSchema = () => ({
+  type: new StringField(requiredBlank),
+  skill: new StringField(requiredBlank),
+  damage: new StringField(requiredBlank),
+  concealability: new StringField(requiredBlank),
+  accuracy: new NumberField(requiredUninitialized),
+  upgradeIds: new ArrayField(new ForeignDocumentField(Item, { idOnly: true }))
+})
+
 export const rangedSchema = () => ({
   range: new NumberField(optionalUninitialized),
   magazine: new NumberField(optionalUninitialized),
   cartridge: new StringField(optionalBlank),
-  rateOfFire: new StringField(optionalBlank)
+  rateOfFire: new ArrayField(new NumberField(requiredInitialOne))
 })
 
 export const explosiveSchema = () => ({
   blastRadius: new NumberField(optionalUninitialized)
+})
+
+export const ammoSchema = () => ({
+  damage: new StringField(requiredBlank),
+  rangedDamage: new ObjectField(),
+  type: new StringField(requiredBlank),
+  armorPiercing: new BooleanField(requiredUninitialized)
 })
 
 export const skillSchema = () => ({

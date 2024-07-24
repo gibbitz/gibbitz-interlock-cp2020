@@ -1,4 +1,3 @@
-import { translateObjectValuesFromKeys } from "../utils/translateObjectValuesFromKeys"
 import { SYSTEM_NAME } from './system'
 
 export const EXCELLENT_AVAILABILITY = 'E'

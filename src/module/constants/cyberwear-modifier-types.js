@@ -1,4 +1,3 @@
-import { translateObjectKeysFromValues } from "../utils/translateObjectKeysFromValues"
 import { SYSTEM_NAME } from './system'
 
 export const CYBERWEAR_I18N_BASE = `${SYSTEM_NAME}.items.cyberwear`

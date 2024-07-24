@@ -1,14 +1,15 @@
 {
   "cp2020": {
     "stats": {
-      "label": "Stats",
+      "label": "Stat",
+      "labelPlural": "Stats",
       "mod": "mod",
       "base": "base",
       "damageMod": "dam",
       "total": "total",
       "flavor": {
-        "check": "Statistic Check",
-        "save": "Statistic Save"
+        "check": "Stat Check",
+        "save": "Stat Save"
       },
       "INT": {
         "short": "INT",
@@ -124,6 +125,7 @@
       "equipped": "Equipped",
       "availabilities": {
         "label": "Availability",
+        "labelPlural": "Availabilities",
         "C": {
           "long": "Common",
           "short": "C"
@@ -142,7 +144,8 @@
         }
       },
       "skill": {
-        "label": "Skills",
+        "label": "Skill",
+        "labelPlural": "Skills",
         "nameLabel": "Skill Name",
         "description": "Details",
         "notes": "Notes",
@@ -157,10 +160,11 @@
         "ip": "IP",
         "ipMultiplier": "IP Multiplier",
         "stat": "Stat",
-        "flavorLead": "Skill Check"
+        "flavor": "Skill Check"
       },
       "armor": {
         "label": "Armor",
+        "labelPlural": "Armor",
         "sp": {
           "long": "Stopping Power",
           "short": "SP"
@@ -172,6 +176,7 @@
       },
       "cyberware": {
         "label": "Cyberware",
+        "labelPlural": "Cyberware",
         "equipped": "active",
         "humanityCost": {
           "long": "Humanity Cost",
@@ -200,6 +205,7 @@
       },
       "cyberdeck": {
         "label": "Cyberdeck",
+        "labelPlural": "Cyberdecks",
         "speed": {
           "long": "Speed",
           "short": "SPD"
@@ -223,6 +229,7 @@
       },
       "upgrade": {
         "label": "Upgrade",
+        "labelPlural": "Upgrades",
         "recipient": {
           "long": "Modified Item Type",
           "short": "Modded"
@@ -237,7 +244,8 @@
         }
       },
       "program": {
-        "label": "Programs",
+        "label": "Program",
+        "labelPlural": "Programs",
         "memory": {
           "long": "Memory Units",
           "short": "MU"
@@ -248,7 +256,8 @@
         }
       },
       "weapon": {
-        "label": "Weapons",
+        "label": "Weapon",
+        "labelPlural": "Weapons",
         "type": {
           "long": "Weapon Type",
           "short": "Type"
@@ -318,7 +327,10 @@
         },
         "rateOfFire": {
           "long": "Rate Of Fire",
-          "short": "ROF"
+          "short": "ROF",
+          "perTurn": "Rounds per Turn",
+          "newRow": "Add Rounds per Turn",
+          "deleteRow": "Remove Entry"
         },
         "blastRadius": {
           "long": "Blast Radius",
@@ -326,10 +338,12 @@
         }
       },
       "outfit": {
-        "label": "Outfit"
+        "label": "Outfit",
+        "labelPlural": "Outfit"
       },
       "vehicle": {
         "label": "Vehicle",
+        "labelPlural": "Vehicles",
         "acc": {
           "long": "Acceleration",
           "short": "ACC"
@@ -423,6 +437,7 @@
     },
     "lifepath": {
       "label": "Lifepath",
+      "labelPlural": "Lifepath",
       "year": "year",
       "event": "event"
     },
@@ -452,6 +467,55 @@
       "multipleItemsWarn": "Your edgerunner '{actor}' has more than one {type} with name '{name}'. Using the first match...",
       "noActorSelected": "You gotta point that thing at somebody.",
       "unownedWarn": "If you don't own it, you can't use it..."
+    },
+    "dialogs": {
+      "skill": {
+        "delete": {
+          "title": "Delete {$1} Skill?",
+          "content": "{$1} skill will be deleted and all IP and level data will be lost. Do you wish to proceed?"
+        }
+      },
+      "outfit": {
+        "delete": {
+          "title": "Drop your {$1}?",
+          "content": "{$1} will be deleted from your outfit and all upgrades still on it will be lost. Do you wish to proceed?"
+        }
+      },
+      "upgrade": {
+        "delete": {
+          "title": "Drop this {$1}?",
+          "content": "{$1} will be deleted from your outfit and uninstalled. You sure?"
+        },
+        "mismatch": "You can't put a {$1} on a {$2}. They don't go together like that.",
+        "unownedUpgrade": "No 5 finger discount. Buy the {$1} first",
+        "missingUpgrade": "If you can imagine it, it doesn't make it real...",
+        "unownedItem": "You gotta pay for the {$1} before you upgrade it...",
+        "slavery": "Trust me {$1} is no upgrade"
+      },
+      "weapon": {
+        "delete": {
+          "title": "Ditch your {$1}?",
+          "content": "Wipe off your fingerprints and ditch the {$1}? All upgrades still installed will be lost."
+        }
+      }
+    },
+    "selects": {
+      "ranges" : {
+        "label": "Range",
+        "pointBlank": "Point Blank (Touching to 1m)",
+        "close": "Close (1-4 Long Range)",
+        "medium": "Medium (1-2 Long Range)",
+        "long": "Long (Full Range)",
+        "extreme": "Extreme (2x Long Range)"
+      },
+      "skillDifficulties": {
+        "label": "Difficulty",
+        "easy": "Easy",
+        "average": "Average",
+        "difficult": "Difficult",
+        "veryDifficult": "Very Difficult",
+        "nearlyImpossible": "Nearly Impossible"
+      }
     },
     "sidebar":{
       "imports": {

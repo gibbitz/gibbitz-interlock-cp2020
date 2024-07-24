@@ -1,0 +1,18 @@
+{{systemLog ' DEFENSE DIALOG: |' this }}
+<form data-selector="defenseValues">
+  <label>
+    <input type="text" class="test-input" name="test" />
+    test
+  </label>
+  {{cp2020-input
+    label="second test"
+    name="test-hbs-input"
+    type='text'
+  }}
+  {{cp2020-select
+    label="cp2020.selects.range.label"
+    name="test-select"
+    inverted=true
+    options=TO_HIT_DV_SELECT_OPTIONS
+  }}
+</form>

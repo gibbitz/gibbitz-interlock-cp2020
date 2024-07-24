@@ -1,4 +1,3 @@
-import { translateObjectKeysFromValues } from "../utils/translateObjectKeysFromValues"
 import { WEAPON_I18N_BASE } from './weapon-types'
 
 export const NOT_CONCEALABLE = 'not'

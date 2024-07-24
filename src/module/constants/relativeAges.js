@@ -1,5 +1,3 @@
-import { translateObjectKeysFromValues } from '../utils/translateObjectKeysFromValues'
-
 export const SIBLING_I18N_BASE = 'cp2020.siblings'
 export const RELATIVE_AGE_I18N_BASE = `${SIBLING_I18N_BASE}.ages`
 

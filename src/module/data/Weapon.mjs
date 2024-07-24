@@ -1,7 +1,8 @@
+import { Upgrade } from '@documents/item/Upgrade.mjs';
 import { weaponSchema, rangedSchema, explosiveSchema } from "./oufitSchema.mjs";
 import { Outfit } from "./Outfit.mjs";
 
-const { StringField } = foundry.data.fields;
+const { StringField, ObjectField } = foundry.data.fields;
 
 export class Weapon extends Outfit {
 
@@ -14,7 +15,8 @@ export class Weapon extends Outfit {
       ...explosiveSchema(),
       // devived values
       damageRoll: new StringField({ blank: true }),
-      hitRoll: new StringField({ blank: true })
+      hitRoll: new StringField({ blank: true }),
+      upgrades: new ObjectField()
     }
   }
 
@@ -25,5 +27,6 @@ export class Weapon extends Outfit {
     const strBonus = 0
     this.damageRoll = `${damage}+${strBonus}`
     this.hitRoll = `1d10+@skills.get(${skill}).total+${accuracy}`
+
   }
 }

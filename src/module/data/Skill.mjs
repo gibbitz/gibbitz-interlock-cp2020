@@ -20,6 +20,6 @@ export class Skill extends foundry.abstract.TypeDataModel {
     // notify if not equipped at time of roll
     this.rollFormula = rollFormula
     this.flavor = this.flavor
-      || `[${game.i18n.localize('cp2020.stats.'+this.stat+'.long')} ${game.i18n.localize('cp2020.items.skill.flavorLead')}] ${this.parent.name}`
+      || `[${game.i18n.localize('cp2020.stats.'+this.stat+'.long')} ${game.i18n.localize('cp2020.items.skill.flavor')}] ${this.parent.name}`
   }
 }

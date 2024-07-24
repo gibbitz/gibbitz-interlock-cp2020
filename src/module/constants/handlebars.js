@@ -1,8 +1,6 @@
 import { SYSTEM_PROJECT_NAME } from './system'
 
 const BASE_TEMPLATE_PATH = `systems/${ SYSTEM_PROJECT_NAME }/templates`
-const generateGlobalPartialPath = (partialName) =>
-  `${BASE_TEMPLATE_PATH}/partials/${partialName}-partial.hbs`
 const globalPartials = [
   'cp2020-button',
   'cp2020-checkbox',
@@ -12,10 +10,9 @@ const globalPartials = [
   'cp2020-importSidebar',
   'cp2020-input',
   'cp2020-select',
-  'cp2020-textarea'
+  'cp2020-textarea',
+  'cp2020-arrayEditor'
 ]
-const generateItemPartialPath = (partialName) =>
-  `${BASE_TEMPLATE_PATH}/item/parts/${partialName}-partial.hbs`
 const itemPartials = [
   'armor',
   'cyberdeck',
@@ -29,8 +26,6 @@ const itemPartials = [
   'vehicle',
   'weapon'
 ]
-const generateActorPartialPath = (partialName) =>
-  `${BASE_TEMPLATE_PATH}/actor/parts/${partialName}-partial.hbs`
 const actorPartials = [
   'bio',
   'family',
@@ -43,6 +38,13 @@ const actorPartials = [
   'style',
   'values'
 ]
+
+const generateGlobalPartialPath = (partialName) =>
+  `${BASE_TEMPLATE_PATH}/partials/${partialName}-partial.hbs`
+const generateItemPartialPath = (partialName) =>
+  `${BASE_TEMPLATE_PATH}/item/parts/${partialName}-partial.hbs`
+const generateActorPartialPath = (partialName) =>
+  `${BASE_TEMPLATE_PATH}/actor/parts/${partialName}-partial.hbs`
 
 export const HBS_TEMPLATES = [
   ...actorPartials.map(generateActorPartialPath),
@@ -61,3 +63,6 @@ export const HBS_ACTOR_TEMPLATE_PATH = `${BASE_TEMPLATE_PATH}/actor/edgerunner-s
 // logic added to direct to outfit if type is not a string/provided
 export const GET_HBS_ITEM_TEMPLATE_PATH = (type) =>
   `${BASE_TEMPLATE_PATH}/item/${(type?.toLowerCase() || 'outfit')}-sheet.hbs`
+
+export const DEFENSE_DIALOG_PATH = `${BASE_TEMPLATE_PATH}/dialogs/combat/defense.hbs`
+export const OFFENSE_DIALOG_PATH = `${BASE_TEMPLATE_PATH}/dialogs/combat/offense.hbs`

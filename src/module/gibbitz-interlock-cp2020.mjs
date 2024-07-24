@@ -1,5 +1,12 @@
 // system constants
-import { SYSTEM_PROJECT_NAME, SYSTEM_NAME, CP_2020 } from '@constants'
+import {
+  SYSTEM_PROJECT_NAME,
+  SYSTEM_NAME,
+  CP_2020,
+  DOCUMENT_TYPES
+} from '@constants'
+
+import { preloadHandlebarsTemplates, registerHandlebarsHelpers } from './utils/handlebars'
 
 // document classes
 import { Cp2020Actor, Cp2020Item } from '@documents';
@@ -30,11 +37,14 @@ import {
   createHotbarMacro,
   createItemRollMacro,
   createChatRollMacro,
-  preloadHandlebarsTemplates ,
-  registerHandlebarsHelpers,
   systemLog
 } from '@utils';
+import{
+  registerSocketHandlers
+} from '@utils/sockets';
+import { ITEM_DOCUMENT_TYPES } from './constants/item-types';
 
+console.log('LOADED')
 registerHandlebarsHelpers()
 
 Hooks.on('init', function () {
@@ -86,37 +96,42 @@ Hooks.on('init', function () {
   // if the transfer property on the Active Effect is true.
   CONFIG.ActiveEffect.legacyTransferral = false;
 
+  // setup sockets
+  registerSocketHandlers()
+
   // Register sheet application classes
   Actors.unregisterSheet('core', ActorSheet);
   Actors.registerSheet(SYSTEM_PROJECT_NAME, EdgerunnerSheet, {
     makeDefault: true,
     label: `${SYSTEM_NAME}.SheetLabels.Actor`,
   });
-  Items.unregisterSheet('core', ItemSheet);
-  Items.registerSheet(SYSTEM_PROJECT_NAME, WeaponSheet, {
-    types: ['Weapon'],
-    label: `${SYSTEM_NAME}.SheetLabels.Weapon`,
-  });
-  Items.registerSheet(SYSTEM_PROJECT_NAME, CyberwareSheet, {
-    types: ['Cyberware'],
-    label: `${SYSTEM_NAME}.SheetLabels.Cyberware`,
-  });
-  Items.registerSheet(SYSTEM_PROJECT_NAME, OutfitSheet, {
-    types: [
-      'Armor',
-      'Cyberdeck',
-      'Outfit',
-      'Program',
-      'Skill',
-      'Vehicle',
-      'Upgrade'
-    ],
-    label: `${SYSTEM_NAME}.SheetLabels.Item`,
-  });
+  const registerItemSheets = () => {
+    const { WEAPON, CYBERWARE, AMMUNITION, CURRENCY, ...ITEM_TYPES} = ITEM_DOCUMENT_TYPES
+    Items.unregisterSheet('core', ItemSheet);
+    Items.registerSheet(SYSTEM_PROJECT_NAME, WeaponSheet, {
+      types: [WEAPON],
+      label: `${SYSTEM_NAME}.SheetLabels.Weapon`,
+    });
+    Items.registerSheet(SYSTEM_PROJECT_NAME, CyberwareSheet, {
+      types: [CYBERWARE],
+      label: `${SYSTEM_NAME}.SheetLabels.Cyberware`,
+    });
+    Items.registerSheet(SYSTEM_PROJECT_NAME, OutfitSheet, {
+      types: ITEM_TYPES,
+      label: `${SYSTEM_NAME}.SheetLabels.Item`,
+    });
+  }
+  registerItemSheets()
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();
 });
+
+// TODO: trigger this on Actor drops
+Hooks.on('dropSharedItemSheetData', (actor, item, data) => {
+  debugger
+  return true
+})
 
 /* -------------------------------------------- */
 /*  Ready Hook                                  */

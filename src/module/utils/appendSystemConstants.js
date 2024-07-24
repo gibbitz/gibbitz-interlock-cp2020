@@ -1,5 +1,7 @@
 import {
-  SYSTEM_NAME
+  SYSTEM_NAME,
+  SKILL_DV,
+  TO_HIT_DV
 } from "@constants"
 import {
   buildAvailabilitiesSelectOptions,
@@ -8,8 +10,10 @@ import {
   buildLocationOptions,
   buildRelativeAgeSelectOptions,
   buildStatSelectOptions,
-  buildWeaponTypeSelectOptions
+  buildWeaponTypeSelectOptions,
+  buildItemTypeSelectOptions
 } from '@utils/buildSelectOptions'
+import { translateObjectKeys } from './i18n/translateObjectKeys'
 
 
 /**
@@ -31,5 +35,8 @@ export const appendSystemConstants = (context, i18n) => ({
   CYBERWEAR_MODIFIER_TYPE_SELECT_OPTIONS: buildCyberwearModifierOptions(i18n),
   LOCATION_SELECT_OPTIONS: buildLocationOptions(i18n),
   STAT_SELECT_OPTIONS: buildStatSelectOptions(i18n),
-  RELATIVE_AGE_SELECT_OPTIONS: buildRelativeAgeSelectOptions(i18n)
+  RELATIVE_AGE_SELECT_OPTIONS: buildRelativeAgeSelectOptions(i18n),
+  ITEM_TYPES_SELECT_OPTIONS: buildItemTypeSelectOptions(i18n),
+  SKILL_DV_SELECT_OPTIONS: translateObjectKeys(i18n, SKILL_DV),
+  TO_HIT_DV_SELECT_OPTIONS: translateObjectKeys(i18n, TO_HIT_DV)
 })

@@ -1,0 +1,24 @@
+{{systemLog ' OFFENSE DIALOG: |' this }}
+{{!-- output weapon data --}}
+{{!-- determine available attack types --}}
+{{!-- select attack type --}}
+{{!-- display relevant selections --}}
+<form data-selector="defenseValues">
+  {{cp2020-input
+    label="first test"
+    name="offense-hbs-input-number"
+    type='number'
+  }}
+  {{cp2020-input
+    label="second test"
+    name="offense-hbs-input"
+    type='text'
+  }}
+  {{!-- display for <3 rounds of fire --}}
+  {{cp2020-select
+    label="cp2020.selects.range.label"
+    name="target"
+    inverted=true
+    options=targetOptions
+  }}
+</form>

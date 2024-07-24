@@ -22,6 +22,8 @@ export default (async () => ({
         '@utils': path.resolve(rootDir, 'src/module/utils'),
         '@constants': path.resolve(rootDir, 'src/module/constants'),
         '@sheets': path.resolve(rootDir, 'src/module/sheets'),
+        '@actorListeners': path.resolve(rootDir, 'src/module/sheets/listeners/actor'),
+        '@itemListeners': path.resolve(rootDir, 'src/module/sheets/listeners/item'),
         '@templates': path.resolve(rootDir, 'src/templates'),
         '@documents': path.resolve(rootDir, 'src/module/documents'),
         '@models': path.resolve(rootDir, 'src/module/data'),
