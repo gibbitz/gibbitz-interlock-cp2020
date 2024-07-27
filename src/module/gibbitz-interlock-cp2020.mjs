@@ -40,7 +40,7 @@ import {
   systemLog
 } from '@utils';
 import{
-  registerSocketHandlers
+  initSocketListeners
 } from '@utils/sockets';
 import { ITEM_DOCUMENT_TYPES } from './constants/item-types';
 
@@ -97,7 +97,7 @@ Hooks.on('init', function () {
   CONFIG.ActiveEffect.legacyTransferral = false;
 
   // setup sockets
-  registerSocketHandlers()
+  initSocketListeners()
 
   // Register sheet application classes
   Actors.unregisterSheet('core', ActorSheet);

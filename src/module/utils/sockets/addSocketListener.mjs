@@ -4,7 +4,7 @@ import {
 
 // TODO create listener stack & consolidate socket listener
 
-export const registerSocketResponseHandler = (eventType, callback) => {
+export const addSocketListener = (eventType, callback) => {
   const systemEvent = `system.${SYSTEM_PROJECT_NAME}`
   const handler = ({ type, payload }) => {
     if (

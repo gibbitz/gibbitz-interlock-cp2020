@@ -497,6 +497,22 @@
           "title": "Ditch your {$1}?",
           "content": "Wipe off your fingerprints and ditch the {$1}? All upgrades still installed will be lost."
         }
+      },
+      "checks": {
+        "selects": {
+          "range": {
+            "label": "Range (by DV)"
+          },
+          "target": {
+            "label": "Choose a single target"
+          },
+          "skill": {
+            "label": "Select the appropriate Skill"
+          },
+          "stat": {
+            "label": "Select the fallback Stat"
+          }
+        }
       }
     },
     "selects": {

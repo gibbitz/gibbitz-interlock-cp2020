@@ -15,7 +15,8 @@ export class Cp2020BaseItem extends Item {
   }
 
   /**
-   * Prepare a data object which defines the data schema used by dice roll commands against this Item
+   * Prepare a data object which defines the data schema used
+   * by dice roll commands against this Item
    * @override
    */
   getRollData() {

@@ -1,3 +1,3 @@
 export * from './emitters.mjs'
-export * from './registerSocketHandlers.mjs'
-export * from './registerSocketResponseHandler.mjs'
+export * from './initSocketListeners.mjs'
+export * from './addSocketListener.mjs'

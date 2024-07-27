@@ -1,6 +1,9 @@
 {{systemLog ' OFFENSE DIALOG: |' this }}
 {{!-- output weapon data --}}
 {{!-- determine available attack types --}}
+{{#if isMelee}}
+
+{{/if}}
 {{!-- select attack type --}}
 {{!-- display relevant selections --}}
 <form data-selector="defenseValues">
@@ -15,10 +18,18 @@
     type='text'
   }}
   {{!-- display for <3 rounds of fire --}}
-  {{cp2020-select
-    label="cp2020.selects.range.label"
-    name="target"
-    inverted=true
-    options=targetOptions
-  }}
+  {{#if multipleTargets}}
+    {{cp2020-select
+      label="cp2020.dialogs.checks.selects.target.label"
+      name="targetActorId"
+      inverted=true
+      options=targetOptions
+    }}
+  {{else}}
+    {{cp2020-input
+      name="targetActorId"
+      type='hidden'
+      value=targetActorId
+    }}
+  {{/if}}
 </form>

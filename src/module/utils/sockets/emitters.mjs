@@ -22,14 +22,14 @@ const makeResponse = (payload) => ({
   recipient: payload.sender
 })
 
-export const emitAttackCollection = async (payload) =>
+export const emitAttack = async (payload) =>
   emit(EMIT_ATTACK, payload)
 
-export const emitDefense = async (payload) =>
+export const emitDefend = async (payload) =>
   emit(EMIT_DEFENSE, makeResponse(payload))
 
-export const emitSkillCollection = async (payload) =>
+export const emitSkillChallenge = async (payload) =>
   emit(EMIT_CHECK, payload)
 
-export const emitSkillResponse = async (payload) =>
+export const emitSkillCounter = async (payload) =>
   emit(EMIT_DV, makeResponse(payload))

@@ -1,18 +1,15 @@
 {{systemLog ' DEFENSE DIALOG: |' this }}
 <form data-selector="defenseValues">
-  <label>
-    <input type="text" class="test-input" name="test" />
-    test
-  </label>
-  {{cp2020-input
-    label="second test"
-    name="test-hbs-input"
-    type='text'
+  {{cp2020-select
+    label="cp2020.dialogs.checks.selects.skill.label"
+    name="skillRollFormula"
+    inverted=true
+    options=skillOptions
   }}
   {{cp2020-select
-    label="cp2020.selects.range.label"
-    name="test-select"
+    label="cp2020.dialogs.checks.selects.stat.label"
+    name="statRollFormula"
     inverted=true
-    options=TO_HIT_DV_SELECT_OPTIONS
+    options=statOptions
   }}
 </form>
