@@ -498,6 +498,13 @@
           "content": "Wipe off your fingerprints and ditch the {$1}? All upgrades still installed will be lost."
         }
       },
+      "offense": {
+        "title": "{$1} attacks {$2} with a {$3}",
+        "attackDetails": {
+          "legend": "Attack Details",
+          "rateOfFire": "Rounds fired"
+        }
+      },
       "checks": {
         "selects": {
           "range": {
@@ -511,11 +518,32 @@
           },
           "stat": {
             "label": "Select the fallback Stat"
+          },
+          "autoFire": {
+            "label": "Zone of fire",
+            "direct": "Direct Fire",
+            "spray": "Suppressive Fire"
           }
         }
       }
     },
     "selects": {
+      "martialArts": {
+        "label": "Martial Arts Move",
+        "strike": "Strike",
+        "punch": "Punch",
+        "kick": "Kick",
+        "disarm": "Disarm",
+        "sweep": "Sweep",
+        "block": "Block",
+        "dodge": "Dodge",
+        "grapple": "Grapple",
+        "throw": "Throw",
+        "hold": "Hold",
+        "choke": "Choke",
+        "escape": "Escape",
+        "ram": "Ram"
+      },
       "ranges" : {
         "label": "Range",
         "pointBlank": "Point Blank (Touching to 1m)",

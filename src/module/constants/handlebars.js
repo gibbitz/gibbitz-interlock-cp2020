@@ -11,7 +11,8 @@ const globalPartials = [
   'cp2020-input',
   'cp2020-select',
   'cp2020-textarea',
-  'cp2020-arrayEditor'
+  'cp2020-arrayEditor',
+  'cp2020-range'
 ]
 const itemPartials = [
   'armor',

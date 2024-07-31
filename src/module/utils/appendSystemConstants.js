@@ -1,7 +1,9 @@
 import {
   SYSTEM_NAME,
   SKILL_DV,
-  TO_HIT_DV
+  TO_HIT_DV,
+  AUTO_FIRE_OPTIONS,
+  MARTIAL_ARTS_MOVES_OPTIONS
 } from "@constants"
 import {
   buildAvailabilitiesSelectOptions,
@@ -14,7 +16,6 @@ import {
   buildItemTypeSelectOptions
 } from '@utils/buildSelectOptions'
 import { translateObjectKeys } from './i18n/translateObjectKeys'
-
 
 /**
  * Appends the system constants to the context passed to the function,
@@ -29,6 +30,8 @@ import { translateObjectKeys } from './i18n/translateObjectKeys'
 export const appendSystemConstants = (context, i18n) => ({
   ...context,
   SYSTEM_NAME,
+  MARTIAL_ARTS_MOVES_SELECT_OPTIONS: translateObjectKeys(i18n, MARTIAL_ARTS_MOVES_OPTIONS),
+  AUTO_FIRE_SELECT_OPTIONS: translateObjectKeys(i18n, AUTO_FIRE_OPTIONS),
   ITEM_AVAILABILITIES_SELECT_OPTIONS: buildAvailabilitiesSelectOptions(i18n),
   WEAPON_CONCEALABILITY_SELECT_OPTIONS: buildConcealabilitySelectOptions(i18n),
   WEAPON_TYPE_SELECT_OPTIONS: buildWeaponTypeSelectOptions(i18n),

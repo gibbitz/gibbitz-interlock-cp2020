@@ -11,11 +11,11 @@ const rootDir = path.resolve(
 )
 
 const customResolver = resolve({
-  extensions: ['.mjs', '.js', '.json', '.scss', '.css']
+  extensions: ['.js', '.json', '.scss', '.css']
 })
 
 export default (async () => ({
-  input: `src/module/${SYSTEM_PROJECT_NAME}.mjs`,
+  input: `src/module/${SYSTEM_PROJECT_NAME}.js`,
 	plugins: [
     alias({
       entries: {
@@ -41,7 +41,7 @@ export default (async () => ({
 		isProd && (await import('@rollup/plugin-terser')).default()
 	],
 	output: {
-    file: `dist/${SYSTEM_PROJECT_NAME}/system.mjs`,
+    file: `dist/${SYSTEM_PROJECT_NAME}/system.js`,
     sourcemap: isProd ? false : 'inline',
 		format: 'esm'
 	}
