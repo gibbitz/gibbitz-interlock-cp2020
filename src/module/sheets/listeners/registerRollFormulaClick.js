@@ -1,6 +1,6 @@
 /**
- * @typedef {Function} RollFormulaClickHandler
- * @description handler for clicks that pulls item id from the target dataset to find a rollFormula to roll
+ * handler for clicks that pulls item id from the target dataset to find a rollFormula to roll
+ * @callback RollFormulaClickHandler
  * @param {Event} event DOM Event with a target property
 */
 

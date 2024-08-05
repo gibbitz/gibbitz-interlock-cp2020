@@ -1,0 +1,15 @@
+{{systemLog ' DIFFICULTY VALUE DIALOG: |' this }}
+<form data-selector="difficultyValue">
+  {{cp2020-select
+    label="cp2020.selects.skillDifficulties.label"
+    name="overrideDV"
+    inverted=true
+    options=TO_HIT_DV_SELECT_OPTIONS
+  }}
+  {{!-- {{cp2020-select
+  label="cp2020.dialogs.checks.selects.stat.label"
+  name="statRollFormula"
+  inverted=true
+  options=statOptions
+  }} --}}
+</form>

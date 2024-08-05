@@ -7,10 +7,10 @@ import { INITIAL_REPLACE_TOKEN } from '../constants/system'
  * if the first pattern is {$1}, then the second to be replaced would be ${2} etc
  * @example
  * // returns 'this is a short string'
- * replaceStringTokens('this is a {$1} string', 'short')
+ * replaceStringTokens('this is a ${1} string', 'short')
  * @example
  * // returns 'this is a longer string with two replacements'
- * replaceStringTokens('this is a {$1} string with {$2} replacements', 'longer', 'two')
+ * replaceStringTokens('this is a ${1} string with ${2} replacements', 'longer', 'two')
  * @param {string} initialString string containing replacement patterns
  * @param  {...[string]} tokenValues
  * @return {string} the resultant string with the replacements made

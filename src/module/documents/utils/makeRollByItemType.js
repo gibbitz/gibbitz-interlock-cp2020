@@ -2,7 +2,7 @@ import {
   ITEM_DOCUMENT_TYPES
 } from '@constants'
 
-import { generateWeaponOffense } from './rolls'
+import { rollWeaponAttack } from '@rolls'
 
 import { initializeChatDataByItem } from './initializeChatDataByItem'
 /**
@@ -11,7 +11,7 @@ import { initializeChatDataByItem } from './initializeChatDataByItem'
  * @param {Item} item game item with rollFormula and flavor
  * @returns {Roll} roll object or undefined
  * */
-export const makeFormulaRollByItem = async (item) => {
+export const makeRollByItemType = async (item) => {
   const {
     system: {
       description
@@ -35,7 +35,7 @@ export const makeFormulaRollByItem = async (item) => {
   let roll
   switch (type) {
     case ITEM_DOCUMENT_TYPES.WEAPON:
-      roll = await generateWeaponOffense(item)
+      roll = await rollWeaponAttack(item)
       break
     default:
       // Invoke the roll and submit it to chat.

@@ -1,7 +1,7 @@
 /**
- * @typedef {ItemEditClickHandler}
+ * handler for clicking Edit buttons
+ * @callback ItemEditClickHandler
  * @param {Event} event DOM event
- * @description handler for clicking Edit buttons
  * @returns undefined
 */
 

@@ -1,7 +1,7 @@
 /**
- * @typedef {AddLifeEventHandler}
+ * handler for add Event that generates a new row
+ * @callback AddLifeEventHandler
  * @param {Event} event DOM event
- * @description handler for add Event that generates a new row
  * @returns undefined
 */
 /**

@@ -1,9 +1,9 @@
 import { systemLog } from '@utils'
 /**
- * @typedef {FormFieldChangeHandler}
+ * handler for changes to form input fields
+ * @callback FormFieldChangeHandler
  * @param {Event} event DOM event
- * @description handler for changes to form input fields
- * @returns undefined
+ *
 */
 /**
  * Factory to generate form field change handlers where the default inputs can't be used

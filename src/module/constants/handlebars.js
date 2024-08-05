@@ -66,4 +66,5 @@ export const GET_HBS_ITEM_TEMPLATE_PATH = (type) =>
   `${BASE_TEMPLATE_PATH}/item/${(type?.toLowerCase() || 'outfit')}-sheet.hbs`
 
 export const DEFENSE_DIALOG_PATH = `${BASE_TEMPLATE_PATH}/dialogs/combat/defense.hbs`
+export const DV_DIALOG_PATH = `${BASE_TEMPLATE_PATH}/dialogs/combat/dv.hbs`
 export const OFFENSE_DIALOG_PATH = `${BASE_TEMPLATE_PATH}/dialogs/combat/offense.hbs`

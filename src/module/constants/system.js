@@ -7,7 +7,7 @@ export const DATA_IMPORT_BASE_PATH = `/systems/${SYSTEM_PROJECT_NAME}/data/`
  * the number 1 is replaced with the index+1 of the parameters
  * then the pattern is replaced in the Localization string
 */
-export const INITIAL_REPLACE_TOKEN = '{$1}'
+export const INITIAL_REPLACE_TOKEN = '${1}'
 
 // draggable item selector allows overrides for freedom/consistency with
 // interactive element markup
@@ -18,10 +18,12 @@ export const DRAG_SELECTOR = '.item-list .item'
 export const XFER_KEY = 'text/plain'
 
 // socket emission types
-export const EMIT_ATTACK = 'EMIT_ATTACK'
+export const EMIT_OPPOSED_ATTACK = 'EMIT_OPPOSED_ATTACK'
+export const EMIT_REQUEST_ATTACK_DV = 'EMIT_REQUEST_ATTACK_DV'
 export const EMIT_DEFENSE = 'EMIT_DEFENSE'
 export const EMIT_CHECK = 'EMIT_CHECK'
 export const EMIT_DV = 'EMIT_DV'
+export const EMIT_ERROR = 'EMIT_ERROR'
 
 export const SKILLS_COMPENDIUM_PACK_NAME = `${SYSTEM_PROJECT_NAME}.skills`
 export const SKILLS_COMPENDIUM_DATA_PATH = `${DATA_IMPORT_BASE_PATH}skills.json`

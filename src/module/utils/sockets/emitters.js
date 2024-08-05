@@ -1,35 +1,67 @@
 import {
-  SYSTEM_PROJECT_NAME,
-  EMIT_ATTACK,
+  EMIT_OPPOSED_ATTACK,
+  EMIT_REQUEST_ATTACK_DV,
   EMIT_DEFENSE,
+  EMIT_ERROR,
   EMIT_CHECK
 } from '@constants'
 
-const emit= (type, payload) =>
-  game.socket.emit(
-    `system.${SYSTEM_PROJECT_NAME}`,
-    {
-      type,
-      payload: {
-        ...payload,
-        sender: game.userId
-      }
+import { enrollSocket } from './enrollSocket'
+import { systemLog, notify } from '@utils'
+import { determineOpposedRollResult, rollWeaponDefense, determineAttackDV } from '@rolls'
+
+let emitOpposedAttack
+let emitDefend
+let emitError
+let emitSkillChallenge
+let emitRequestAttackDv
+
+export const makeResponse = (payload) => ({
+  ...payload,
+  recipient: payload.sender,
+  sender: payload.recipient
+})
+
+export const initSocketListeners = () => {
+
+  emitOpposedAttack = enrollSocket(
+    EMIT_OPPOSED_ATTACK,
+    async (payload) => {
+      await rollWeaponDefense(payload)
     }
   )
 
-const makeResponse = (payload) => ({
-  ...payload,
-  recipient: payload.sender
-})
+  emitRequestAttackDv = enrollSocket(
+    EMIT_REQUEST_ATTACK_DV,
+    determineAttackDV
+  )
 
-export const emitAttack = async (payload) =>
-  emit(EMIT_ATTACK, payload)
+  emitDefend = enrollSocket(
+    EMIT_DEFENSE,
+    async (payload) => {
+      determineOpposedRollResult(makeResponse(payload))
+    }
+  )
 
-export const emitDefend = async (payload) =>
-  emit(EMIT_DEFENSE, makeResponse(payload))
+  emitError = enrollSocket(
+    EMIT_ERROR,
+    async (payload) => {
+      const sender = game.users.get(makeResponse(payload).sender).name
+      notify(game.i18n.localize('cp2020.errors.communication'), sender, payload.defense.error)
+    }
+  )
 
-export const emitSkillChallenge = async (payload) =>
-  emit(EMIT_CHECK, payload)
-
-export const emitSkillCounter = async (payload) =>
-  emit(EMIT_DV, makeResponse(payload))
+  emitSkillChallenge = enrollSocket(
+    EMIT_CHECK,
+    async (payload) => {
+      systemLog('OPPOSED SKILL |', payload)
+    }
+  )
+}
+export const emitters = {
+  emitSkillChallenge: (...args) => emitSkillChallenge(...args),
+  emitDefend: (...args) => emitDefend(...args),
+  emitError: (...args) => emitError(...args),
+  emitOpposedAttack: (...args) => emitOpposedAttack(...args),
+  emitRequestAttackDv: (...args) => emitRequestAttackDv(...args)
+}

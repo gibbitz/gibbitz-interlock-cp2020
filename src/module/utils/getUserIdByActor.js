@@ -15,12 +15,13 @@ export const getUserIdByActor = (actor) => {
   return Object.keys(ownership)
     .filter((id) => {
       const isGmId = game.users.get(id)?.isGM
-      if (hasPlayerOwner) {
-        // not default or self (should be other player)
-        return id !== userId && id !== DEFAULT && !isGmId
-      }else{
-        // defender is NPC
-        return isGmId
-      }
-    })[0]
+      const playerIsOnline = !isGmId && game.users.get(id)?.active
+      // not default or self (should be other player)
+      return hasPlayerOwner
+        && playerIsOnline
+        && id !== userId
+        && id !== DEFAULT
+        && !isGmId
+
+    })[0] || game.users.activeGM.id
 }

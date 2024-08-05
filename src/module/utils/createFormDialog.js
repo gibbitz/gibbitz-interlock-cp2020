@@ -1,20 +1,20 @@
 import { appendSystemConstants } from '@utils/appendSystemConstants'
 
 /**
- * @typedef {Function} FormDialogSubmissionHandler
+ * @callback FormDialogSubmissionHandler
  *
  * a function to handle the form submission.
  * If the data is acceptable, this should return the formdata as needed after the dialog
  * If there is an issue with the form this function should not return or return false
- * @returns {Object|false|undefined}
+ * @returns {object|false|undefined}
  */
 
 /**
- * @typedef {Object} FormDialogParams
+ * @typedef {object} FormDialogParams
  *
  * This is an Object of parameters passed to createFormDialog that allows setting
  * handlers and data manipulation for the Dialog's return
- * @property {Object} context an object containing keys to be used in the handlebars template
+ * @property {object} context an object containing keys to be used in the handlebars template
  * this object will be extended with the system constants via `appendSystemConstants`
  * @property {string} template the path to the handlebars template used to render the form
  * @property {string} title the title to display on the dialog

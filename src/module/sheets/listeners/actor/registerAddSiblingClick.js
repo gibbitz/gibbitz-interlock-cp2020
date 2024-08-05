@@ -1,7 +1,7 @@
 /**
- * @typedef {AddSiblingHandler}
+ * handler for add Sibling that generates a new row
+ * @callback AddSiblingHandler
  * @param {Event} event DOM event
- * @description handler for add Sibling that generates a new row
  * @returns undefined
 */
 /**

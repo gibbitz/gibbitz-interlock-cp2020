@@ -1,6 +1,7 @@
 import { Upgrade } from '@documents/item/Upgrade';
 import { weaponSchema, rangedSchema, explosiveSchema } from "./oufitSchema";
 import { Outfit } from "./Outfit";
+import { determineWeaponRanges } from '@utils';
 
 const { StringField, ObjectField } = foundry.data.fields;
 
@@ -27,6 +28,6 @@ export class Weapon extends Outfit {
     const strBonus = 0
     this.damageRoll = `${damage}+${strBonus}`
     this.hitRoll = `1d10+@skills.get(${skill}).total+${accuracy}`
-
+    this.rangeDVs = determineWeaponRanges(this.range)
   }
 }

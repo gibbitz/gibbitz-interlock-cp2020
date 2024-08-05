@@ -1,6 +1,6 @@
 /**
- * @typedef {Function} RollClickHandler
- * @description handler for clicks that pulls item id from the target dataset to find a rollable item from the owner
+ * handler for clicks that pulls item id from the target dataset to find a rollable item from the owner
+ * @callback RollClickHandler
  * @param {Event} event DOM Event with a target property
 */
 

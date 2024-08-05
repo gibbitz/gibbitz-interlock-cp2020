@@ -1,4 +1,7 @@
-import { makeFormulaRollByItem, addOwnerRollData } from '../utils';
+import {
+  makeRollByItemType,
+  addOwnerRollData
+} from '../utils';
 
 /**
  * Extend the basic Item with some very simple modifications.
@@ -37,6 +40,6 @@ export class Cp2020BaseItem extends Item {
    * @public
    */
   async roll() {
-    return makeFormulaRollByItem(this)
+    return makeRollByItemType(this)
   }
 }

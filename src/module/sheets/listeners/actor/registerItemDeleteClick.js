@@ -5,10 +5,9 @@ import {
 // TODO: Flesh out documentation here -- need examples
 
 /**
- * @typedef {ItemDeleteClickHandler}
+ * handler for clicking delete buttons
+ * @callback ItemDeleteClickHandler
  * @param {Event} event DOM event
- * @description handler for clicking delete buttons
- * @returns undefined
 */
 
 /**

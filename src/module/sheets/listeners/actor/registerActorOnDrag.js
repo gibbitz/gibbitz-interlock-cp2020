@@ -2,23 +2,21 @@ import { replaceStringTokens } from '@utils/replaceStringTokens'
 import { XFER_KEY } from '@constants/system'
 
 /**
- * @typedef {Function} registerDraggableElement
+ * function that makes elements draggable and registers dragStart as the dragStart handler
+ * @callback registerDraggableElement
  * @param {HTMLElement} element the item intended to be draggable
- * @description function that makes elements draggable and registers dragStart as the dragStart handler
- * @returns undefined
- */
+ *
 
 /**
- * @typedef {Function} dragStart
+ * handler for onDragStart that doubles as the ActorSheet _onDragStart method
+ * @callback dragStart
  * @param {Event} event DOM event
- * @description handler for onDragStart that doubles as the ActorSheet _onDragStart method
- * @returns undefined
  */
 
 /**
- * @typedef {Object} OnDragHandlers
+ * @typedef {object} OnDragHandlers
  * @property {dragStart} dragStart
- * @property {registerDraggableElement} registerDraggableElement -
+ * @property {registerDraggableElement} registerDraggableElement
  */
 
 /**

@@ -3,15 +3,14 @@ import { accessByPathString } from '@utils'
 // TODO: complete this documentation
 
 /**
- * @typedef {ArrayManipulationHandlers}
+ * @typedef {object} ArrayManipulationHandlers
  * @property {AddArrayMemberHandler} add
  * @property {RemoveArrayMemberHandler} remove
  */
 
 /**
  * Handler for add button in array item list
- * @typedef  {AddArrayMemberHandler}
- * @description Handler for add button in array item list
+ * @callback AddArrayMemberHandler
  * @param {Event} event DOMEvent containing the target with dataset containing data-uuid & data-meta
  * @example button markup
  * ```html
@@ -34,8 +33,8 @@ import { accessByPathString } from '@utils'
 
 /**
  *
- * @typedef {RemoveArrayMemberHandler}
- * @description Handler for remove button in array item list
+ * Handler to remove button in array item list
+ * @callback RemoveArrayMemberHandler
  * @param {Event} event DOMEvent containing the target with dataset containing data-uuid,
  * data-key & data-meta
  */

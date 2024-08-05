@@ -1,3 +1,3 @@
 export * from './addOwnerRollData'
-export * from './makeFormulaRollByItem'
+export * from './makeRollByItemType'
 export * from './initializeChatDataByItem'
