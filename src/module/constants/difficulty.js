@@ -15,6 +15,7 @@ export const TO_HIT_DV = {
 export const RANGE_MULTIPLIERS = [0, 0.25, 0.5, 1, 2]
 const BASE_SELECT_TO_HIT_I18N = 'cp2020.selects.modifiers.toHit'
 export const TO_HIT_MODIFIERS ={
+  [`${BASE_SELECT_TO_HIT_I18N}.prompt`]: undefined,
   [`${BASE_SELECT_TO_HIT_I18N}.immoble`]: 4,
   [`${BASE_SELECT_TO_HIT_I18N}.largeTarget`]: 4,
   [`${BASE_SELECT_TO_HIT_I18N}.smallTarget`]: -4,
@@ -49,6 +50,7 @@ export const TO_HIT_MODIFIERS ={
 }
 const BASE_SELECT_DIFF_I18N = 'cp2020.selects.modifiers.difficulty'
 export const SKILL_MODIFIERS = {
+  [`${BASE_SELECT_DIFF_I18N}.prompt`]: undefined,
   [`${BASE_SELECT_DIFF_I18N}.complexRepair`]: 2,
   [`${BASE_SELECT_DIFF_I18N}.veryComplex`]: 4,
   [`${BASE_SELECT_DIFF_I18N}.neverDone`]: 6,

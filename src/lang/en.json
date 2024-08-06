@@ -512,6 +512,16 @@
         "block": "Block ${1}",
         "defend": "Defend yourself from ${1}"
       },
+      "dv": {
+        "title": "Determine DV for ${1} attack",
+        "action": "Set DV",
+        "range": "Token range: ${1}",
+        "defaultDv": "Default DV: ${1} for range ${2}m (${3})",
+        "overrideRange": "Range override",
+        "overridePrompt": "Select a range to overide default",
+        "modifier": "Select a modifier",
+        "otherModifier": "Discretionary modifier"
+      },
       "checks": {
         "selects": {
           "range": {
@@ -557,14 +567,15 @@
       "ranges" : {
         "label": "Range",
         "pointBlank": "Point Blank (Touching to 1m)",
-        "close": "Close ${1}",
-        "medium": "Medium ${1}",
-        "long": "Long ${1}",
-        "extreme": "Extreme ${1}"
+        "close": "Close ${1}m",
+        "medium": "Medium ${1}m",
+        "long": "Long ${1}m",
+        "extreme": "Extreme ${1}m"
       },
       "modifiers": {
         "toHit": {
           "label": "To Hit Modifiers",
+          "prompt": "Select a to hit modifier",
           "immoble":"Target immobile",
           "largeTarget":"Large target",
           "smallTarget":"Small target",
@@ -599,6 +610,7 @@
         },
         "difficulty": {
           "label": "Difficulty Modifier",
+          "prompt": "Select a difficulty modifier",
           "complexRepair": "Complex Repair",
           "veryComplex": "Very Complex Repair",
           "neverDone": "“It’s Never Been Done Before”",

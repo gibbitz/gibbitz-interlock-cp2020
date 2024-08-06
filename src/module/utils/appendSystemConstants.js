@@ -3,7 +3,9 @@ import {
   SKILL_DV,
   TO_HIT_DV,
   AUTO_FIRE_OPTIONS,
-  MARTIAL_ARTS_MOVES_OPTIONS
+  MARTIAL_ARTS_MOVES_OPTIONS,
+  TO_HIT_MODIFIERS,
+  SKILL_MODIFIERS
 } from "@constants"
 import {
   buildAvailabilitiesSelectOptions,
@@ -41,5 +43,7 @@ export const appendSystemConstants = (context, i18n) => ({
   RELATIVE_AGE_SELECT_OPTIONS: buildRelativeAgeSelectOptions(i18n),
   ITEM_TYPES_SELECT_OPTIONS: buildItemTypeSelectOptions(i18n),
   SKILL_DV_SELECT_OPTIONS: translateObjectKeys(i18n, SKILL_DV),
-  TO_HIT_DV_SELECT_OPTIONS: translateObjectKeys(i18n, TO_HIT_DV)
+  SKILL_MODIFIER_SELECT_OPTIONS: translateObjectKeys(i18n, SKILL_MODIFIERS),
+  TO_HIT_DV_SELECT_OPTIONS: translateObjectKeys(i18n, TO_HIT_DV),
+  TO_HIT_MODIFIERS_SELECT_OPTIONS: translateObjectKeys(i18n, TO_HIT_MODIFIERS)
 })
