@@ -9,6 +9,7 @@ const globalPartials = [
   'cp2020-outfitHeader',
   'cp2020-importSidebar',
   'cp2020-input',
+  'cp2020-output',
   'cp2020-select',
   'cp2020-textarea',
   'cp2020-arrayEditor',

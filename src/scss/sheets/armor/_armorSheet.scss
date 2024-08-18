@@ -1,0 +1,142 @@
+%covered {
+  fill: $color-level-10-transparent;
+  stroke: $color-level-10-transparent;
+}
+.cp2020-armor-sheet {
+  .mannequin-col {
+    align-self: stretch;
+    > * {
+      flex: 0 0 auto;
+    }
+  }
+  .location-list__row {
+    align-items: stretch;
+    .col {
+      min-width: 200px;
+    }
+  }
+  .location-list__col {
+    .field-box {
+      height: 100%;
+      select {
+        height: calc(100% - 1.5rem);
+        min-height: 200px;
+      }
+    }
+  }
+  .mannequin {
+    flex: 6 4 auto;
+    svg {
+      width: 70%;
+      margin: 0 auto;
+      display: block;
+    }
+    path {
+      fill: rgba(#000, 0);
+      stroke: rgba(#000, 0);
+    }
+    #base {
+      fill: $color-bg-transparent;
+      stroke: $color-text-light-0;
+    }
+  }
+}
+.skull #skull {
+  @extend %covered;
+}
+.right-eye #right-eye {
+  @extend %covered;
+}
+.left-eye #left-eye {
+  @extend %covered;
+}
+.face #face {
+  @extend %covered;
+}
+.neck #neck {
+  @extend %covered;
+}
+.right-chest #right-chest {
+  @extend %covered;
+}
+.left-chest #left-chest {
+  @extend %covered;
+}
+.right-stomach #right-stomach {
+  @extend %covered;
+}
+.left-stomach #left-stomach {
+  @extend %covered;
+}
+.right-shoulder #right-shoulder {
+  @extend %covered;
+}
+.right-upperArm #right-upperArm {
+  @extend %covered;
+}
+.right-elbow #right-elbow {
+  @extend %covered;
+}
+.right-forearm #right-forearm {
+  @extend %covered;
+}
+.right-hand #right-hand {
+  @extend %covered;
+}
+.left-shoulder #left-shoulder {
+  @extend %covered;
+}
+.left-upperArm #left-upperArm {
+  @extend %covered;
+}
+.left-elbow #left-elbow {
+  @extend %covered;
+}
+.left-forearm #left-forearm {
+  @extend %covered;
+}
+.left-hand #left-hand {
+  @extend %covered;
+}
+.right-groin #right-groin {
+  @extend %covered;
+}
+.right-hipBone #right-hipBone {
+  @extend %covered;
+}
+.right-hipJoint #right-hipJoint {
+  @extend %covered;
+}
+.right-thigh #right-thigh {
+  @extend %covered;
+}
+.right-knee #right-knee {
+  @extend %covered;
+}
+.right-shin #right-shin {
+  @extend %covered;
+}
+.right-foot #right-foot {
+  @extend %covered;
+}
+.left-groin #left-groin {
+  @extend %covered;
+}
+.left-hipBone #left-hipBone {
+  @extend %covered;
+}
+.left-hipJoint #left-hipJoint {
+  @extend %covered;
+}
+.left-thigh #left-thigh {
+  @extend %covered;
+}
+.left-knee #left-knee {
+  @extend %covered;
+}
+.left-shin #left-shin {
+  @extend %covered;
+}
+.left-foot #left-foot {
+  @extend %covered;
+}

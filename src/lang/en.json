@@ -448,7 +448,8 @@
       "siblingCount": "number of siblings",
       "ranking": "family rank",
       "status": "family status",
-      "childhood": "childhood environment"
+      "childhood": "childhood environment",
+      "relationshipNotes": "relationship"
     },
     "siblings": {
       "age": "relative age",
@@ -520,7 +521,8 @@
         "overrideRange": "Range override",
         "overridePrompt": "Select a range to overide default",
         "modifier": "Select a modifier",
-        "otherModifier": "Discretionary modifier"
+        "otherModifier": "Discretionary modifier",
+        "outputLabel": "Current DV"
       },
       "checks": {
         "selects": {

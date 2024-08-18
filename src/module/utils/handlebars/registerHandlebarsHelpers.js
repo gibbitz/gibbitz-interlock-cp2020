@@ -12,7 +12,7 @@ const registerHelperFromPartialPath = (partialName, partialPath) =>
   Handlebars.registerHelper(
     partialName,
     (context, options) => new Handlebars.SafeString(
-      Handlebars.partials[partialPath](context?.hash || context)
+      Handlebars.partials[partialPath](context?.hash || context, options)
     )
   )
 

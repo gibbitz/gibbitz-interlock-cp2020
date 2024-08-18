@@ -13,9 +13,10 @@ export const TO_HIT_DV = {
   'cp2020.selects.ranges.extreme': 30,
 }
 export const RANGE_MULTIPLIERS = [0, 0.25, 0.5, 1, 2]
+
 const BASE_SELECT_TO_HIT_I18N = 'cp2020.selects.modifiers.toHit'
 export const TO_HIT_MODIFIERS ={
-  [`${BASE_SELECT_TO_HIT_I18N}.prompt`]: undefined,
+  [`${BASE_SELECT_TO_HIT_I18N}.prompt`]: 0,
   [`${BASE_SELECT_TO_HIT_I18N}.immoble`]: 4,
   [`${BASE_SELECT_TO_HIT_I18N}.largeTarget`]: 4,
   [`${BASE_SELECT_TO_HIT_I18N}.smallTarget`]: -4,

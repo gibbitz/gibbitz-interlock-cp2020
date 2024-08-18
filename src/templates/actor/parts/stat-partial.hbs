@@ -1,46 +1,20 @@
 {{systemLog ' STATS | ' this}}
-<div class="legend">Stats</div>
-<article class="fieldset row edgerunner__stats">
+<article class="fieldset edgerunner-sheet__stats">
+  <div class="legend">Stats</div>
   {{#each this}}
     {{systemLog ' STAT | ' @key}}
-    <div class="edgerunner__stat col stat--level-{{total}}">
-      <details class="edgerunner__stat--inner col">
-        <summary class="stat__total stat--level-{{total}} col">
+    <div class="edgerunner__stat stat--level-{{total}}">
+      <details class="edgerunner__stat--inner">
+        <summary class="stat__total stat--level-{{total}}">
           <h3 class="stat__total--value">
             <abbr>[{{abbr}}]</abbr>
             {{total}}
-            {{#if rollFormula}}
-              <button
-                data-flavor="[{{localize 'cp2020.stats.flavor.check'}}] {{name}}"
-                data-roll-formula="{{rollFormula}}"
-                data-selector="stat-roll"
-                class="stat__roll col"
-              >
-                {{cp2020-dice-icon
-                  sides=10
-                }}
-                check
-              </button>
-            {{/if}}
-            {{#if saveFormula}}
-              <button
-                data-flavor="[{{localize 'cp2020.stats.flavor.save'}}] {{name}}"
-                data-roll-formula="{{saveFormula}}"
-                data-selector="stat-roll"
-                class="stat__roll col"
-              >
-                {{cp2020-dice-icon
-                  sides=10
-                }}
-                save
-              </button>
-            {{/if}}
           </h3>
           <progress class="stat__total--bar" max="{{max}}" value="{{scaleValue}}">{{total}}</progress>
           <small class="stat__name">{{name}}</small>
         </summary>
-        <div class="row">
-          <label class="col stat__component">
+        <div class="edgerunner__stat--details">
+          <label class="stat__component">
             <input
               name="{{concat 'system.stats.' @key '.natural'}}"
               type="number"
@@ -50,7 +24,7 @@
               {{localize 'cp2020.stats.base'}}
             </small>
           </label>
-          <label class="col stat__component">
+          <label class="stat__component">
             <input
               name="{{concat 'system.stats.' @key '.modifier'}}"
               type="number"
@@ -62,6 +36,26 @@
           </label>
         </div>
       </details>
+      <div class="stat__buttons-row">
+        {{#if rollFormula}}
+          <button data-flavor="[{{localize 'cp2020.stats.flavor.check'}}] {{name}}" data-roll-formula="{{rollFormula}}"
+            data-selector="stat-roll" class="stat__roll">
+            {{cp2020-dice-icon
+            sides=10
+            }}
+            check
+          </button>
+        {{/if}}
+        {{#if saveFormula}}
+          <button data-flavor="[{{localize 'cp2020.stats.flavor.save'}}] {{name}}" data-roll-formula="{{saveFormula}}"
+            data-selector="stat-roll" class="stat__roll">
+            {{cp2020-dice-icon
+            sides=10
+            }}
+            save
+          </button>
+        {{/if}}
+      </div>
     </div>
   {{/each}}
 </article>

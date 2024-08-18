@@ -1,6 +1,6 @@
 {{systemLog ' BIO | SIBLINGS | ' this}}
-<div class="legend">Siblings {{system.bio.family.siblingCount}}</div>
-<article class="fieldset">
+<article class="fieldset edgerunner-sheet__siblings">
+  <div class="legend">Siblings ({{system.bio.family.siblingCount}})</div>
   <ul>
     {{#each system.bio.siblings}}
     <li>
@@ -29,9 +29,11 @@
         inverted=true
         options=@root.RELATIVE_AGE_SELECT_OPTIONS
       }}
-      {{editor event
+      {{cp2020-editor
+        content=relationshipNotes
         target=(concat 'system.bio.siblings.' @index '.relationshipNotes')
-        engine="prosemirror" editable='true'
+        editable='true'
+        label="cp2020.family.relationshipNotes"
       }}
     </li>
     {{/each}}

@@ -29,7 +29,8 @@ export const determineAttackDV = async (attackPayload) => {
   createAttackDvDialog({
     attackPayload,
     overrideDvOptions,
-    defaultDV
+    defaultDV,
+    dvData
   }).then((data) => {
     emitDefend({
       ...attackPayload,

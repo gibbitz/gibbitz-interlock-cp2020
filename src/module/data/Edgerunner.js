@@ -274,5 +274,6 @@ export class Edgerunner extends foundry.abstract.TypeDataModel {
     this.stats.dam.total = this.stats.body.total < 15
       ? DAMAGE_MODIFIER[this.stats.body.total]
       : 8
+    this.bio.family.siblingCount = this.bio.siblings?.length
   }
 }

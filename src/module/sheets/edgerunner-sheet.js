@@ -34,13 +34,13 @@ export class EdgerunnerSheet extends ActorSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['cp2020', 'sheet', 'edgerunner'],
-      width: 600,
-      height: 600,
+      width: 1100,
+      height: 800,
       dragDrop: [{ dragSelector: DRAG_SELECTOR, dropSelector: null }],
       tabs: [
         {
-          navSelector: '[data-selector="personal-tabs"]',
-          contentSelector: '[data-selector="personal-tab-body"]',
+          navSelector: '[data-selector="background-tabs"]',
+          contentSelector: '[data-selector="background-tab-body"]',
           initial: 'style',
         },
         {

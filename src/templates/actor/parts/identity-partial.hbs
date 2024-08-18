@@ -1,6 +1,6 @@
 {{systemLog ' IDENTITY | ACTOR | ' this}}
-<div class="legend">Identity</div>
-<article class="fieldset">
+<article class="fieldset edgerunner-sheet__identity">
+  <div class="legend">Identity</div>
   {{cp2020-input
     name='name'
     value=name
@@ -31,6 +31,18 @@
       value=sexualPreference
       type='text'
       label='cp2020.identity.sexualPreference'
+    }}
+    {{cp2020-input
+      name='system.bio.family.ethnicity'
+      value=@root.system.bio.family.ethnicity
+      type='text'
+      label='cp2020.family.ethnicity'
+    }}
+    {{cp2020-input
+      name='system.bio.family.language'
+      value=@root.system.bio.family.language
+      type='text'
+      label='cp2020.family.language'
     }}
   {{/with}}
 </article>

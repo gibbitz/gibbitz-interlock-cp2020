@@ -1,2 +1,17 @@
-@use 'reset.scss';
-@use 'utils.scss';
+@use 'partials/variables' as *;
+@use 'partials/placeholders';
+// @use 'partials/mixins';
+@import 'partials/dynamicProperties';
+
+.system-gibbitz-interlock-cp2020 {
+  @import 'partials/reset';
+  @import 'system';
+  @import 'utils';
+  @import 'partials/forms';
+  @import 'partials/layout';
+  @import 'sheets/armor/armorSheet';
+  @import 'sheets/edgerunner/portrait';
+  @import 'sheets/edgerunner/stats';
+  @import 'sheets/edgerunner/siblings';
+  @import 'sheets/edgerunner/edgerunner';
+}
