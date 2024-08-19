@@ -145,12 +145,6 @@ export class Edgerunner extends foundry.abstract.TypeDataModel {
             game.i18n.localize('cp2020.stats.HUM.short')
           )
         ),
-        hl: new SchemaField(
-          simpleStatFields(
-            game.i18n.localize('cp2020.stats.HL.long'),
-            game.i18n.localize('cp2020.stats.HL.short')
-          )
-        ),
         run: new SchemaField(
           simpleStatFields(
             game.i18n.localize('cp2020.stats.RUN.long'),

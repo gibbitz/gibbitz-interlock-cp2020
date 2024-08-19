@@ -45,3 +45,17 @@
     stroke-width: 1px;
   }
 }
+
+.cp2020-button {
+  @extend %crt-hover;
+  background: $color-level-info-inactive;
+  color: $color-bg;
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  transition: color 0.2s, background-color 0.3s;
+  width: auto;
+  &:hover {
+    color: $color-text-light-0;
+    background: $color-level-info;
+  }
+}

@@ -19,8 +19,9 @@ button {
 
 // OVERRIDES
 a {
+  @extend %crt-hover;
   &:hover {
-    text-shadow: 0 0 1px $color-shadow-primary;
+    // text-shadow: 0 0 1px $color-shadow-primary;
     color: $color-shadow-primary;
   }
 }
@@ -29,7 +30,7 @@ a {
     align-items: initial;
     border: 0;
     margin: 0;
-    padding-top: 0.9em;
+    width: 100%;
     > [data-tab] {
       flex: 1 1 auto;
       padding: 0;

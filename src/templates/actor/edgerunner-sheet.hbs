@@ -1,7 +1,7 @@
 {{systemLog ' ACTOR | ' actor}}
 {{systemLog ' ACTOR-SHEET | ' this}}
 
-<form class="edgerunner-sheet">
+<form class="edgerunner-sheet crt">
   <main class="edgerunner-sheet__layout">
     {{identity actor}}
     {{portrait actor}}
@@ -20,94 +20,90 @@
     {{stat actor.system.stats}}
     {{motivations actor}}
     {{style actor}}
-    <div class="edgerunner-sheet__background">
+    {{family actor}}
+    <div class="edgerunner-sheet__background fieldset">
       <nav class="sheet-tabs tabs legend" data-selector="background-tabs" data-group="background">
         {{!-- Default tab is specified in actor-sheet.js --}}
-        <a class="item" data-tab="family">Family</a>
+        <a class="item" data-tab="skills">Skills</a>
         <a class="item" data-tab="history">History</a>
+        <a class="item" data-tab="siblings">Siblings ({{actor.system.bio.family.siblingCount}})</a>
       </nav>
       <section data-selector="background-tab-body" class="edgerunner-sheet__tab-body">
-        <article class="tab" data-tab="family">
-          {{family actor}}
+        <article class="tab" data-tab="skills">
+          <ul class="item-list">
+            {{#each actor.itemTypes.Skill}}
+            {{skill this index=@index}}
+            {{/each}}
+          </ul>
         </article>
         <article class="tab" data-tab="history">
           {{lifepath actor.system.bio.lifepath}}
         </article>
+        <article class="tab" data-tab="siblings">
+          {{siblings this}}
+        </article>
       </section>
     </div>
-
-  <div class="edgerunner-sheet__items">
-  <nav class="sheet-tabs tabs" data-selector="primary-tabs" data-group="primary">
-    {{!-- Default tab is specified in actor-sheet.js --}}
-    <a class="item" data-tab="skills">Skills</a>
-    <a class="item" data-tab="combat">Combat</a>
-    <a class="item" data-tab="outfit">Outfit</a>
-    <a class="item" data-tab="cyberware">Chrome</a>
-    <a class="item" data-tab="rides">Rides</a>
-    <a class="item" data-tab="hack">Hack</a>
-  </nav>
-  <section data-selector="primary-tab-body">
-    <article  class="tab" data-tab="skills">
-      <h3>Skills</h3>
-      <ul class="item-list">
-        {{#each actor.itemTypes.Skill}}
-          {{skill this index=@index}}
-        {{/each}}
-      </ul>
-    </article>
-    <article  class="tab" data-tab="combat">
-
-      <h3>Weapons</h3>
-      <ul class="item-list">
-        {{#each actor.itemTypes.Weapon}}
-          {{weapon this}}
-        {{/each}}
-      </ul>
-    </article>
-    <article  class="tab" data-tab="outfit">
-      <h3>Outfit</h3>
-      <ul class="item-list">
-        {{#each actor.itemTypes.Outfit}}
-          {{outfit this}}
-        {{/each}}
-      </ul>
-      <h3>Upgrades</h3>
-      <ul class="item-list">
-        {{#each actor.itemTypes.Upgrade}}
-        {{outfit this}}
-        {{/each}}
-      </ul>
-    </article>
-    <article  class="tab" data-tab="cyberware">
-      <h3>Chrome</h3>
-      <ul class="item-list">
-        {{#each actor.itemTypes.Cyberware}}
-          {{cyberware this}}
-        {{/each}}
-      </ul>
-    </article>
-    <article  class="tab" data-tab="rides">
-      <h3>Vehicles</h3>
-      <ul class="item-list">
-        {{#each actor.itemTypes.Vehicle}}
-          {{vehicle this}}
-        {{/each}}
-      </ul>
-    </article>
-    <article  class="tab" data-tab="hack">
-      <h3>Cyberdecks</h3>
-      <ul class="item-list">
-        {{#each actor.itemTypes.Cyberdeck}}
-          {{cyberdeck this}}
-        {{/each}}
-      </ul>
-      <h3>Programs</h3>
-      <ul class="item-list">
-        {{#each actor.itemTypes.Program}}
-          {{program this}}
-        {{/each}}
-      </ul>
-    </article>
-  </section>
-  </div>
+    <div class="edgerunner-sheet__items fieldset">
+      <nav class="sheet-tabs tabs legend" data-selector="item-tabs" data-group="primary">
+        {{!-- Default tab is specified in actor-sheet.js --}}
+        <a class="item" data-tab="combat">Combat</a>
+        <a class="item" data-tab="outfit">Outfit</a>
+        <a class="item" data-tab="cyberware">Chrome</a>
+        <a class="item" data-tab="hack">Hack</a>
+        <a class="item" data-tab="rides">Rides</a>
+      </nav>
+      <section data-selector="item-tab-body">
+        <article  class="tab" data-tab="combat">
+          <h3>Weapons</h3>
+          <ul class="item-list">
+            {{#each actor.itemTypes.Weapon}}
+              {{weapon this}}
+            {{/each}}
+          </ul>
+        </article>
+        <article  class="tab" data-tab="outfit">
+          <ul class="item-list">
+            {{#each actor.itemTypes.Outfit}}
+              {{outfit this}}
+            {{/each}}
+          </ul>
+          <h3>Upgrades</h3>
+          <ul class="item-list">
+            {{#each actor.itemTypes.Upgrade}}
+            {{outfit this}}
+            {{/each}}
+          </ul>
+        </article>
+        <article  class="tab" data-tab="cyberware">
+          <ul class="item-list">
+            {{#each actor.itemTypes.Cyberware}}
+              {{cyberware this}}
+            {{/each}}
+          </ul>
+        </article>
+        <article class="tab" data-tab="hack">
+          <h3>Cyberdecks</h3>
+          <ul class="item-list">
+            {{#each actor.itemTypes.Cyberdeck}}
+            {{cyberdeck this}}
+            {{/each}}
+          </ul>
+          <h3>Programs</h3>
+          <ul class="item-list">
+            {{#each actor.itemTypes.Program}}
+            {{program this}}
+            {{/each}}
+          </ul>
+        </article>
+        <article  class="tab" data-tab="rides">
+          <ul class="item-list">
+            {{#each actor.itemTypes.Vehicle}}
+              {{vehicle this}}
+            {{/each}}
+          </ul>
+        </article>
+      </section>
+    </div>
+  </main>
 </form>

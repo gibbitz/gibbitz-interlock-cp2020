@@ -41,12 +41,17 @@ export class EdgerunnerSheet extends ActorSheet {
         {
           navSelector: '[data-selector="background-tabs"]',
           contentSelector: '[data-selector="background-tab-body"]',
-          initial: 'style',
+          initial: 'history',
         },
         {
-          navSelector: '[data-selector="primary-tabs"]',
-          contentSelector: '[data-selector="primary-tab-body"]',
+          navSelector: '[data-selector="action-tabs"]',
+          contentSelector: '[data-selector="action-tab-body"]',
           initial: 'skills',
+        },
+        {
+          navSelector: '[data-selector="item-tabs"]',
+          contentSelector: '[data-selector="item-tab-body"]',
+          initial: 'outfit',
         },
       ],
     });

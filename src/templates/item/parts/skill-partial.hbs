@@ -47,7 +47,7 @@
           value=this.system.chipLevel
         }}
       </div>
-      <button
+      {{!-- <button
         data-flavor="{{this.system.flavor}}"
         data-roll
         data-uuid="{{_id}}"
@@ -57,13 +57,19 @@
         {{cp2020-dice-icon
           sides=10
         }}
-      </button>
-      <button
-        data-selector="item-delete"
-        data-uuid="{{_id}}"
-      >
-        Remove Skill
-      </button>
+      </button> --}}
+      {{cp2020-button
+        flavor="{{this.system.flavor}}"
+        roll="true"
+        uuid=_id
+        class="skill__roll d-10"
+        label="Roll Check"
+      }}
+      {{cp2020-button
+        uuid=_id
+        label='Remove Skill'
+        selector='item-delete'
+      }}
     </summary>
     <div>
       {{{system.description}}}
