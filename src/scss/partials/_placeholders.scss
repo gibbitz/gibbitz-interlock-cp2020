@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'effects' as *;
 
 %field {
   padding: 0.2rem;
@@ -105,5 +106,19 @@
     background-color: $color-border-dark-4;
     border-radius: 0;
     border: 1px inset $color-bg;
+  }
+}
+
+%die-base {
+  @extend %crt-hover;
+  color: $color-text-light-7;
+  font-size: 2em;
+  transition: color 0.2s;
+  &:hover {
+    color: $color-text-light-0;
+  }
+  &::after {
+    display: inline-block;
+    content: 'j'
   }
 }

@@ -6,105 +6,80 @@
   grid-template-columns: repeat(6, 1fr);
 }
 .edgerunner__stat {
-  @extend %box;
-  display: grid;
-  grid-template-rows: 1fr 0fr;
-
-  &--inner {
-    @extend %inner-box;
+  &--level-0 ,
+  &--level-1 {
+    background-color: $color-level-1-transparent;
   }
 
-  &.stat {
-    &--level-1 {
-      background-color: $color-level-1-transparent;
-    }
+  &--level-2 {
+    background-color: $color-level-2-transparent;
+  }
 
-    &--level-2 {
-      background-color: $color-level-2-transparent;
-    }
+  &--level-3 {
+    background-color: $color-level-3-transparent;
+  }
 
-    &--level-3 {
-      background-color: $color-level-3-transparent;
-    }
+  &--level-4 {
+    background-color: $color-level-4-transparent;
+  }
 
-    &--level-4 {
-      background-color: $color-level-4-transparent;
-    }
+  &--level-5 {
+    background-color: $color-level-5-transparent;
+  }
 
-    &--level-5 {
-      background-color: $color-level-5-transparent;
-    }
+  &--level-6 {
+    background-color: $color-level-6-transparent;
+  }
 
-    &--level-6 {
-      background-color: $color-level-6-transparent;
-    }
+  &--level-7 {
+    background-color: $color-level-7-transparent;
+  }
 
-    &--level-7 {
-      background-color: $color-level-7-transparent;
-    }
+  &--level-8 {
+    background-color: $color-level-8-transparent;
+  }
 
-    &--level-8 {
-      background-color: $color-level-8-transparent;
-    }
+  &--level-9 {
+    background-color: $color-level-9-transparent;
+  }
 
-    &--level-9 {
-      background-color: $color-level-9-transparent;
-    }
+  &--level-10 {
+    background-color: $color-level-10-transparent;
+  }
 
-    &--level-10 {
-      background-color: $color-level-10-transparent;
-    }
+  &--details{
+    align-items: center;
+    background: $color-bg-transparent;
+    bottom: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+    left: 0.3rem;
+    position: absolute;
+    right: 0.3rem;
+    text-align: center;
+    top: 2rem;
   }
 }
 
 .stat {
+  &__component {
+    flex: 0 1 2rem;
+  }
   &__total {
     list-style: none;
     &::marker {
       display: none;
     }
-    @include progress-bar($color-level-5);
-    &.stat--level-1 {
-      @include progress-bar($color-level-1-light);
-    }
-    &.stat--level-2 {
-      @include progress-bar($color-level-2-light);
-    }
-    &.stat--level-3 {
-      @include progress-bar($color-level-3-light);
-    }
-    &.stat--level-4 {
-      @include progress-bar($color-level-4-light);
-    }
-    &.stat--level-5 {
-      @include progress-bar($color-level-5-light);
-    }
-    &.stat--level-6 {
-      @include progress-bar($color-level-6-light);
-    }
-    &.stat--level-7 {
-      @include progress-bar($color-level-7-light);
-    }
-    &.stat--level-8 {
-      @include progress-bar($color-level-8-light);
-    }
-    &.stat--level-9 {
-      @include progress-bar($color-level-9-light);
-    }
-    &.stat--level-10 {
-      @include progress-bar($color-level-10-light);
-    }
     &--value {
       color: $color-text-light-0;
       display: flex;
-      justify-content: space-between;
+      justify-content: stretch;
 
       abbr {
-        min-width: 5rem;
-        font-size: 0.75em;
         color: $color-text-light-7;
+        font-size: 0.75em;
+        text-align: center;
         width: 100%;
-        flex: 0;
       }
     }
     &--bar {
@@ -112,9 +87,12 @@
     }
   }
   &__name {
+    align-items: center;
     color: $color-text-light-1;
+    display: flex;
     font-size: $font-size-11;
     letter-spacing: 0.1rem;
+    min-height: 2.1rem;
     text-align: left;
     text-transform: lowercase;
   }
@@ -123,12 +101,8 @@
     grid-template-columns: 1fr 1fr;
   }
   &__roll {
-    padding-top: 0;
-    line-height: 1;
-    svg {
-        min-width: 1.3rem;
-        cursor: pointer;
-    }
+    line-height: 0.8;
+    cursor: pointer;
     :hover {
       .die {
         stroke: $color-level-10-transparent;

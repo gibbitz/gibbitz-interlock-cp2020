@@ -1,3 +1,4 @@
+@use "sass:list";
 // color vars set dynamic props for scss shorthand
 $color-text-light-highlight: var(--color-text-light-highlight);
 $color-text-light-heading: var(--color-text-light-heading);
@@ -49,6 +50,7 @@ $color-bg-btn-minor-active: var(--color-bg-btn-minor-active);
 $color-bg-option: var(--color-bg-option);
 $color-bg: var(--color-bg);
 $color-bg-transparent: var(--color-bg-transparent);
+$color-graphic-bg-transparent: var(--color-graphic-bg-transparent);
 $color-field-bg: var(--color-field-bg);
 $color-field-bg-focus: var(--color-field-bg-focus);
 $color-field-border: var(--color-field-border);
@@ -93,6 +95,7 @@ $line-height-16: var(--line-height-16);
 $line-height-20: var(--line-height-20);
 $line-height-30: var(--line-height-30);
 $color-level-info-inactive: var(--color-level-info-inactive);
+$color-level-info-active: var(--color-level-info-active);
 $color-level-info: var(--color-level-info);
 $color-level-warning: var(--color-level-warning);
 $color-level-error: var(--color-level-error);
@@ -127,3 +130,37 @@ $color-level-7-transparent: var(--color-level-7-transparent);
 $color-level-8-transparent: var(--color-level-8-transparent);
 $color-level-9-transparent: var(--color-level-9-transparent);
 $color-level-10-transparent: var(--color-level-10-transparent);
+// lists for looping class values
+$color-levels:
+  $color-level-1,
+  $color-level-2,
+  $color-level-3,
+  $color-level-4,
+  $color-level-5,
+  $color-level-6,
+  $color-level-7,
+  $color-level-8,
+  $color-level-9,
+  $color-level-10;
+$light-color-levels:
+  $color-level-1-light,
+  $color-level-2-light,
+  $color-level-3-light,
+  $color-level-4-light,
+  $color-level-5-light,
+  $color-level-6-light,
+  $color-level-7-light,
+  $color-level-8-light,
+  $color-level-9-light,
+  $color-level-10-light;
+$transparent-color-levels:
+  $color-level-1-transparent,
+  $color-level-2-transparent,
+  $color-level-3-transparent,
+  $color-level-4-transparent,
+  $color-level-5-transparent,
+  $color-level-6-transparent,
+  $color-level-7-transparent,
+  $color-level-8-transparent,
+  $color-level-9-transparent,
+  $color-level-10-transparent;

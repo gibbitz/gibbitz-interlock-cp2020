@@ -45,5 +45,7 @@ export default (async () => ({
     file: `dist/${SYSTEM_PROJECT_NAME}/system.js`,
     sourcemap: isProd ? false : 'inline',
 		format: 'esm'
-	}
+	},
+  // handlebars pretends JS is classical and requires confusing "this" context
+  context: 'this'
 }))();

@@ -7,6 +7,8 @@ import {
   WOUND_TYPES
 } from "@constants";
 
+import { rangeToDiscreteLevels } from '@utils';
+
 export class Edgerunner extends foundry.abstract.TypeDataModel {
 
   static defineSchema() {
@@ -235,6 +237,7 @@ export class Edgerunner extends foundry.abstract.TypeDataModel {
       const { modifier, natural } = this.stats[statKey]
       this.stats[statKey].total = modifier + natural
       this.stats[statKey].scaleValue = this.stats[statKey].total
+      this.stats[statKey].min = 1
       this.stats[statKey].rollFormula = `1d10x + @stats.${statKey}.total`
       this.stats[statKey].saveFormula = `1d10cs<@stats.${statKey}.total`
     })
@@ -242,10 +245,15 @@ export class Edgerunner extends foundry.abstract.TypeDataModel {
     this.stats.rep.saveFormula = `1d10cs<@stats.rep.total`
     this.stats.hum.max = 10 * 10
     this.stats.run.max = 10 * 3
+    this.stats.run.min = 3
     this.stats.leap.max = this.stats.run.max / 4
+    this.stats.leap.min = this.stats.run.min / 4
     this.stats.ca.max = 10 * 10
+    this.stats.ca.min = 10
     this.stats.lift.max = this.stats.ca.max * 4
+    this.stats.lift.min = this.stats.ca.min * 4
     this.stats.thro.max = 10 * 3
+    this.stats.thro.min = 3
     this.stats.hum.total = this.stats.emp.total * 10
     this.stats.run.total = this.stats.ma.total * 3
     this.stats.leap.total = this.stats.run.total / 4
@@ -254,17 +262,22 @@ export class Edgerunner extends foundry.abstract.TypeDataModel {
     this.stats.thro.total = this.stats.body.total * 3
     DERIVED_STATS.forEach((key) => {
       const statKey = key.toLowerCase()
-      this.stats[statKey].scaleValue = this.stats[statKey].total
+      this.stats[statKey].scaleValue = rangeToDiscreteLevels(
+        this.stats[statKey].total,
+        this.stats[statKey].max
+      )
     })
 
-    this.stats.btm.max = BTM_VALUES.length
-    this.stats.btm.scaleValue = this.stats.body.total
+    this.stats.btm.min = BTM_VALUES[0]
+    this.stats.btm.max = BTM_VALUES[BTM_VALUES.length-1]
+    this.stats.btm.scaleValue = this.stats.body.scaleValue
     this.stats.btm.total = this.stats.body.total < 11
-    ? BTM_VALUES[this.stats.body.total]
-    : -5
+      ? BTM_VALUES[this.stats.body.total]
+      : -5
 
-    this.stats.dam.max = DAMAGE_MODIFIER.length
-    this.stats.dam.scaleValue = this.stats.body.total
+    this.stats.dam.min = DAMAGE_MODIFIER[0]
+    this.stats.dam.max = DAMAGE_MODIFIER[DAMAGE_MODIFIER.length-1]
+    this.stats.dam.scaleValue = this.stats.body.scaleValue
     this.stats.dam.total = this.stats.body.total < 15
       ? DAMAGE_MODIFIER[this.stats.body.total]
       : 8

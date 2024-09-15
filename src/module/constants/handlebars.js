@@ -4,7 +4,6 @@ const BASE_TEMPLATE_PATH = `systems/${ SYSTEM_PROJECT_NAME }/templates`
 const globalPartials = [
   'cp2020-button',
   'cp2020-checkbox',
-  'cp2020-dice',
   'cp2020-editor',
   'cp2020-outfitHeader',
   'cp2020-importSidebar',
@@ -13,7 +12,10 @@ const globalPartials = [
   'cp2020-select',
   'cp2020-textarea',
   'cp2020-arrayEditor',
-  'cp2020-range'
+  'cp2020-range',
+  'cp2020-mannequin',
+  'cp2020-progress',
+  'cp2020-progressDetail',
 ]
 const itemPartials = [
   'armor',
@@ -36,6 +38,7 @@ const actorPartials = [
   'identity',
   'motivations',
   'portrait',
+  'status',
   'stat',
   'style',
   'values'

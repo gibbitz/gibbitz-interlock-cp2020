@@ -1,4 +1,5 @@
-import { systemLog } from '@utils/log'
+import { systemLog, rangeToDiscreteLevels } from '@utils'
+import { fieldBox } from '@templates/partials/blocks'
 import { HBS_TEMPLATE_HELPER_PARAMS } from '@constants/handlebars'
 
 /**
@@ -22,6 +23,11 @@ const registerHelperFromPartialPath = (partialName, partialPath) =>
 export const registerHandlebarsHelpers = () => {
   // allows access to logging in the template files
   Handlebars.registerHelper('systemLog', systemLog)
+  Handlebars.registerHelper('rangeToDiscreteLevels', rangeToDiscreteLevels)
+  // partials that are blocks are not possible with hbs syntax as helpers
+  // NOTE **NO** BLOCK HELPERS CAN USE ARROW SYNTAX -- DYNAMIC `this` IS *REQUIRED*
+  // -- I  guess there are reasons why no one uses handlebars anymore
+  Handlebars.registerHelper('cp2020-fieldBox', fieldBox)
   // registers all the preloaded handlebars templates as helper functions
   HBS_TEMPLATE_HELPER_PARAMS.forEach(
     (paramArray) => registerHelperFromPartialPath(...paramArray)

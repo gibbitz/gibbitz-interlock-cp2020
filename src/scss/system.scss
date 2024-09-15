@@ -1,3 +1,7 @@
+@use 'sass:list';
+@import 'partials/variables';
+@import 'partials/mixins';
+
 @font-face {
   font-family: 'Aldrich';
   src: url(https://fonts.gstatic.com/s/aldrich/v10/MCoTzAn-1s3IGyJMVacY3w.woff2) format('woff2');
@@ -8,6 +12,20 @@
 @font-face {
   font-family: 'Share Tech Mono';
   src: url(https://fonts.gstatic.com/s/sharetechmono/v9/J7aHnp1uDWRBEqV98dVQztYldFcLowEF.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'd10';
+  src: url('/systems/gibbitz-interlock-cp2020/assets/fonts/d10.woff') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'd6';
+  src: url('/systems/gibbitz-interlock-cp2020/assets/fonts/d6.woff') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
@@ -30,21 +48,19 @@
 }
 
 .die {
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  stroke: $color-field-corners;
-  fill: transparent;
-  transition: stroke 0.5s ease-in-out;
-
-  &--outline {
-    stroke-width: 1px;
+  &--d-6 {
+    @extend %die-base;
+    font-family: 'd6';
   }
 
-  &--inline {
-    opacity: 0.6;
-    stroke-width: 1px;
+  &--d-10 {
+    @extend %die-base;
+    font-family: 'd10';
   }
+
 }
+@include die-variations('.die--d-10');
+@include die-variations('.die--d-6');
 
 .cp2020-button {
   @extend %crt-hover;
@@ -56,6 +72,15 @@
   width: auto;
   &:hover {
     color: $color-text-light-0;
-    background: $color-level-info;
+    background: $color-level-info-active;
+  }
+}
+
+.cp2020-progress {
+  @include progress-bar($color-level-5);
+  @for $level from 1 through 10{
+    &.level-#{$level} {
+      @include progress-bar(list.nth($light-color-levels, $level));
+    }
   }
 }

@@ -38,6 +38,9 @@ a {
         text-shadow: none;
         border-bottom: 1px solid $color-shadow-primary;
       }
+      &:nth-child(1){
+        text-align: left;
+      }
     }
 
   }

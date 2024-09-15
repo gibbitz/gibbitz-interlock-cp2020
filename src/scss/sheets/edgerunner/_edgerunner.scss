@@ -8,7 +8,7 @@ $col-width: minmax(15rem, 1fr);
   .edgerunner-sheet__layout {
     display: grid;
     grid-template-columns: $col-width $col-width $col-width 485px;
-    grid-template-rows: 21rem 3.3rem 5rem 8.9rem 12.6rem 1fr;
+    grid-template-rows: 21rem 3.3rem 5rem 8.9rem 16rem 1fr;
     grid-gap: 0.4rem;
   }
   .edgerunner-sheet__identity {

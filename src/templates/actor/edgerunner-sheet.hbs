@@ -5,18 +5,7 @@
   <main class="edgerunner-sheet__layout">
     {{identity actor}}
     {{portrait actor}}
-    <div class="fieldset edgerunner-sheet__status">
-      <div class="legend">Status</div>
-      <h3>Armor</h3>
-      <figure class="mannequin {{armorLocationClasses}}">
-        {{{characterSilhouette}}}
-      </figure>
-      <ul class="item-list">
-        {{#each actor.itemTypes.Armor }}
-        {{armor this}}
-        {{/each}}
-      </ul>
-    </div>
+    {{status this}}
     {{stat actor.system.stats}}
     {{motivations actor}}
     {{style actor}}

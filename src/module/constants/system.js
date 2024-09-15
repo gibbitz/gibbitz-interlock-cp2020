@@ -2,6 +2,8 @@ export const SYSTEM_NAME = 'cp2020'
 export const SYSTEM_PROJECT_NAME = `gibbitz-interlock-${SYSTEM_NAME}`
 
 export const DATA_IMPORT_BASE_PATH = `/systems/${SYSTEM_PROJECT_NAME}/data/`
+export const GRAPHIC_ASSETS_IMPORT_BASE_PATH = `/systems/${SYSTEM_PROJECT_NAME}/assets/graphics/`
+export const ICON_ASSETS_IMPORT_BASE_PATH = `/systems/${SYSTEM_PROJECT_NAME}/assets/icons/`
 
 /** Token pattern used by replaceStringTokens
  * the number 1 is replaced with the index+1 of the parameters

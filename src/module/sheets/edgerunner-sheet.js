@@ -1,6 +1,7 @@
 import {
-  HBS_ACTOR_TEMPLATE_PATH,
-  DRAG_SELECTOR
+  DRAG_SELECTOR,
+  GRAPHIC_ASSETS_IMPORT_BASE_PATH,
+  HBS_ACTOR_TEMPLATE_PATH
 } from '@constants';
 import {
   onManageActiveEffect,
@@ -8,7 +9,8 @@ import {
 } from '@effects';
 import {
   appendSystemConstants,
-  systemLog
+  systemLog,
+  fetchMannequinGraphic
 } from '@utils';
 import {
   registerItemDeleteClick,
@@ -62,10 +64,10 @@ export class EdgerunnerSheet extends ActorSheet {
     return HBS_ACTOR_TEMPLATE_PATH
   }
 
-  /* -------------------------------------------- */
+  /* ------------------------ ? MALE : FEMALE-------------------- */
 
   /** @override */
-  getData() {
+  async getData() {
     const context = super.getData();
 
     // Add the actor's data to context.data for easier access, as well as flags.
@@ -80,9 +82,14 @@ export class EdgerunnerSheet extends ActorSheet {
       // A generator that returns all effects & items stored on the actor
       this.actor.allApplicableEffects()
     );
+
+    // create graphic svg string for armor/health diplay based on Gender
+    const graphic = await fetchMannequinGraphic(system.identity.gender)
+
     // TODO: Determine if this is better than the document for derived stats
     const sheetData = appendSystemConstants({
       ...context,
+      graphic,
       system,
       flags,
       rollData,

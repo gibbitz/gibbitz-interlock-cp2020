@@ -3,16 +3,15 @@
   <div class="legend">Stats</div>
   {{#each this}}
     {{systemLog ' STAT | ' @key}}
-    <div class="edgerunner__stat stat--level-{{total}}">
+    {{#cp2020-fieldBox class=(concat 'edgerunner__stat--level-' scaleValue)}}
       <details class="edgerunner__stat--inner">
         <summary class="stat__total stat--level-{{total}}">
           <h3 class="stat__total--value">
             <abbr>[{{abbr}}]</abbr>
-            {{total}}
+            <value>{{total}}</value>
           </h3>
-          <progress class="stat__total--bar" max="{{max}}" value="{{scaleValue}}">{{total}}</progress>
-          <small class="stat__name">{{name}}</small>
         </summary>
+        {{#if rollFormula}}
         <div class="edgerunner__stat--details">
           <label class="stat__component">
             <input
@@ -34,28 +33,33 @@
               {{localize 'cp2020.stats.mod'}}
             </small>
           </label>
-        </div>
+        </div>{{/if}}
       </details>
+      {{cp2020-progress
+        class="stat__total--bar"
+        max=max
+        min=min
+        value=total
+      }}
+      <small class="stat__name">{{name}}</small>
       <div class="stat__buttons-row">
         {{#if rollFormula}}
-          <button data-flavor="[{{localize 'cp2020.stats.flavor.check'}}] {{name}}" data-roll-formula="{{rollFormula}}"
-            data-selector="stat-roll" class="stat__roll">
-            {{cp2020-dice-icon
-            sides=10
-            }}
-            check
-          </button>
+        <button
+          data-flavor="[{{localize 'cp2020.stats.flavor.check'}}] {{name}}"
+          data-roll-formula="{{rollFormula}}"
+          data-selector="stat-roll"
+          class="stat__roll die--d-10">
+        </button>
         {{/if}}
         {{#if saveFormula}}
-          <button data-flavor="[{{localize 'cp2020.stats.flavor.save'}}] {{name}}" data-roll-formula="{{saveFormula}}"
-            data-selector="stat-roll" class="stat__roll">
-            {{cp2020-dice-icon
-            sides=10
-            }}
-            save
-          </button>
+        <button
+          data-flavor="[{{localize 'cp2020.stats.flavor.save'}}] {{name}}"
+          data-roll-formula="{{saveFormula}}"
+          data-selector="stat-roll"
+          class="stat__roll die--d-10 die--d-10--save">
+        </button>
         {{/if}}
       </div>
-    </div>
+    {{/cp2020-fieldBox}}
   {{/each}}
 </article>
