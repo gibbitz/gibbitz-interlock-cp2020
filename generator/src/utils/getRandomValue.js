@@ -24,10 +24,19 @@ const fetchData = (dataSource) => new Promise((resolve, reject) => {
 const filterDataArray = (data, filters) => {
   let output = data
   if (filters && data) {
+    const keys = []
     const filterkeys = Object.keys(filters)
     filterkeys.forEach((key) => {
-      output = output.filter(row => row[key] === filters[key])
+      output = output.filter(row => {
+        keys.push({ [key]: row[key] })
+        return row[key]?.toLowerCase() === filters[key]?.toLowerCase()
+      })
     })
+    if (!output.length) {
+      const newKey = keys[Math.floor(keys.length * Math.random())]
+      console.error(`${JSON.stringify(filters)} did not produce any results displaying results for ${JSON.stringify(newKey) }`)
+      output = filterDataArray(data, newKey)
+    }
   }
   return output
 }

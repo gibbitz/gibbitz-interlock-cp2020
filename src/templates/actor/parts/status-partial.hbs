@@ -1,25 +1,36 @@
 <div class="fieldset edgerunner-sheet__status">
   <div class="legend">Status</div>
-  <article>
+  <article class="status-panel">
     {{#cp2020-fieldBox}}
       {{cp2020-progressDetail
-        class="armor__total--bar"
-        max=36
+        class="armor__local--bar"
+        max=16
         min=0
-        value=27
-        name="left arm"
+        value=7
+        name="left-arm"
       }}
       {{cp2020-mannequin
         locationClasses=conditionLocationClasses
         graphic=graphic
       }}
+      {{!-- TODO armor outputs --}}
+      {{cp2020-progressDetail
+        class="armor__global--bar"
+        max=36
+        min=0
+        value=27
+        name="overall"
+      }}
     {{/cp2020-fieldBox}}
-    {{!-- TODO armor outputs --}}
-    {{!-- <ul class="item-list">
-      {{#each actor.itemTypes.Armor }}
-      {{armor this}}
-      {{/each}}
-    </ul> --}}
+    {{#cp2020-fieldBox}}
+      {{!-- TODO: condition partial --}}
+      {{cp2020-progressDetail
+        class="wounds--bar"
+        max=32
+        min=0
+        value=11
+        name="Critical"
+      }}
+    {{/cp2020-fieldBox}}
   </article>
-  {{!-- TODO: condition partial --}}
 </div>

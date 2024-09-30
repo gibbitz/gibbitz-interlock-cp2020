@@ -45,6 +45,7 @@
   box-sizing: border-box;
   display: inline-block;
   margin: $box-spacing;
+  min-height: 0;
   padding: ($box-spacing-value * 2);
   transition: background-color .6s ease-out;
   width: calc(100% - #{($box-spacing-value * 2)}); // adjust for margin

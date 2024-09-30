@@ -3,11 +3,17 @@ import getRandomValue from './utils/getRandomValue'
 const MULTIPLE = 'Multiple'
 
 const getEthnoData = async (languageFilter) => {
+  const ethnoData = await getRandomValue('data/ethnicity.json', languageFilter)
+
+  if (!ethnoData) {
+    const error = `${languageFilter.language} is not a valid language`
+    console.error(error)
+    return { error }
+  }
   const {
     ethnicity,
     language
-  } = await getRandomValue('data/ethnicity.json', languageFilter)
-
+  } = ethnoData
   if (ethnicity !== MULTIPLE) {
     return { ethnicity, primaryLanguage: language }
   // multi-ethnic logic

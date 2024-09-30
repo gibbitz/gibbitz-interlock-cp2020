@@ -10,7 +10,8 @@ import {
 export const ethnicity = {
   uri: getSheetUri(LIFEPATH_STYLE_SPREADSHEET_ID, LIFEPATH_ETHNICITY_SHEET_ID),
   outfile: 'ethnicity.json',
-  modeler: ([ weight, ethnicity, language ]) => ({ weight, ethnicity, language })
+  modeler: ([ weight, ethnicity, language ]) =>
+    ({ weight, ethnicity, language })
 }
 
 export const affectations = {

@@ -20,7 +20,9 @@ export const WEIGHTED_GENDERS = (() => {
 
 export const getGender = (sex) => {
   // get gender
-  const gender = sex || WEIGHTED_GENDERS[[Math.floor(Math.random() * WEIGHTED_GENDERS.length)]]
+  const gender = sex
+    ? Object.keys(GENDERS).filter((gender) => gender.toLowerCase() === sex.toLowerCase())[0]
+    : WEIGHTED_GENDERS[[Math.floor(Math.random() * WEIGHTED_GENDERS.length)]]
   const genderKey = GENDERS[gender]
   const genderFilter = genderKey !== GENDERS.Androgynous && { gender: genderKey }
   return {

@@ -34,21 +34,45 @@ select {
   font-family: $font-small;
   menu {
     button{
+      @extend %crt-hover;
       @extend %inverted-color;
+      background-color: transparent;
+
+      &:hover {
+        color: $color-text-light-0;
+      }
+
+      &.active {
+        background-color: transparent;
+        color: $color-shadow-primary;
+
+        &:hover {
+          color: $color-text-hyperlink;
+        }
+      }
     }
 
     .pm-dropdown {
       @extend %input;
+      color: $color-text-light-7;
       padding-left: 0.5em;
-      background-color: $color-bg-transparent;
 
       ul {
         @extend %background;
         border-color: $color-field-border;
       }
 
-      li:hover {
+      li:hover,
+      li:focus {
         background-color: $color-field-bg-focus;
+      }
+
+      &:hover,
+      &:focus {
+        color: $color-text-hyperlink;
+        i {
+            color: $color-shadow-primary;
+          }
       }
     }
 
@@ -56,6 +80,7 @@ select {
   // for some reason this is absolutely positioned in a flex element preventing it from growing
   .editor-container .editor-content {
     position: relative;
+    color: $color-text-light-0;
   }
 }
 
