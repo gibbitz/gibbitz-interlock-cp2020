@@ -69,6 +69,11 @@ export default (manifest, callback, debug = false) => {
             // debug && console.log(`writing to ${outfile}\n${dbString}\\n`)
             callback(dbString, outfile)
           })
+          .catch((err) => {
+            if (err) {
+              throw new Error(`${err.code} :: ${err.status} :: ${err.message}`)
+            }
+          })
         )
     })
   )

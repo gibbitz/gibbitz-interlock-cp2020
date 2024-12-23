@@ -1,4 +1,4 @@
-import { systemLog, rangeToDiscreteLevels } from '@utils'
+import { systemLog, rangeToDiscreteLevels, repeatHandlebarsHelper, healthUIHandlebarsHelper } from '@utils'
 import { fieldBox } from '@templates/partials/blocks'
 import { HBS_TEMPLATE_HELPER_PARAMS } from '@constants/handlebars'
 

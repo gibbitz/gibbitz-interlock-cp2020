@@ -1,6 +1,8 @@
 import { SYSTEM_NAME } from './system'
 
 export const HIT_LOCATION_I18N_BASE = `${SYSTEM_NAME}.hitLocations`
+
+// TODO: should this be a rolltable?
 export const WEIGHTED_HIT_LOCATIONS = {
   ['skull']: [1, 2, 3],
   ['right.eye']: [4],
@@ -39,3 +41,13 @@ export const WEIGHTED_HIT_LOCATIONS = {
 
 export const HIT_LOCATIONS = Object.keys(WEIGHTED_HIT_LOCATIONS)
 export const WOUND_TYPES = ['bruise', 'penetrating']
+export const WOUND_STATUSES = [
+  'light',
+  'serious',
+  'criical',
+  'mortal_0',
+  'mortal_1',
+  'mortal_2',
+  'mortal_3',
+  'mortal_4'
+]

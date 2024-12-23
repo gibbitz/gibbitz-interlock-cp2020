@@ -4,7 +4,8 @@ import {
   DERIVED_STATS,
   DAMAGE_MODIFIER,
   HIT_LOCATIONS,
-  WOUND_TYPES
+  WOUND_TYPES,
+  HEALED_WOUND_STATE
 } from "@constants";
 
 import { rangeToDiscreteLevels } from '@utils';
@@ -223,9 +224,9 @@ export class Edgerunner extends foundry.abstract.TypeDataModel {
         stunSave: new NumberField(),
         deathSave: new NumberField(),
         damage: new ArrayField(new SchemaField(woundSchema), {
-          initial: () => new Array(40)
+          initial: () => new Array(32)
             .fill()
-            .map(() => ({ location: '', type: '' }))
+            .map(() => ({ ...HEALED_WOUND_STATE }))
         })
       })
     }

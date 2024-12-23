@@ -408,6 +408,18 @@
         "foot": "left foot"
       }
     },
+    "health": {
+      "woundStatuses": {
+        "light": "Light",
+        "serious": "Serious",
+        "critical": "Critical",
+        "mortal_0": "Mortal 0",
+        "mortal_1": "Mortal 1",
+        "mortal_2": "Mortal 2",
+        "mortal_3": "Mortal 3",
+        "mortal_4": "Mortal 4"
+      }
+    },
     "identity": {
       "handle": "handle",
       "givenName": "given name",
